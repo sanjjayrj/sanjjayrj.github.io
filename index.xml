@@ -1,0 +1,25 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>My New Hugo Site</title>
+        <link>http://example.com/</link>
+        <description>Hugo theme - LoveIt</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 29 Aug 2022 21:57:40 &#43;0800</lastBuildDate>
+            <atom:link href="http://example.com/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>Tic-Tac-Toe</title>
+    <link>http://example.com/tic-tac-toe/</link>
+    <pubDate>Mon, 29 Aug 2022 21:57:40 &#43;0800</pubDate>
+    <author>Sanjay</author>
+    <guid>http://example.com/tic-tac-toe/</guid>
+    <description><![CDATA[<p>Tic-Tac-Toe game made using HTML, CSS and JavaScript.</p>]]></description>
+</item>
+<item>
+    <title>Wordle</title>
+    <link>http://example.com/wordle/</link>
+    <pubDate>Mon, 29 Aug 2022 21:57:40 &#43;0800</pubDate>
+    <author>Sanjay</author>
+    <guid>http://example.com/wordle/</guid>
+    <description><![CDATA[<p>Wordle Game made using HTML, CSS and JavaScript.</p>]]></description>
+</item>
+</channel>
+</rss>
