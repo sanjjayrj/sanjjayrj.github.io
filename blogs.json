@@ -1,0 +1,12 @@
+[
+    {
+        "title": "Lessons from My First AI Project",
+        "snippet": "Building a crater detection model taught me many lessons...",
+        "link": "posts/post1.html"
+    },
+    {
+        "title": "How I Optimized Inventory Forecasting",
+        "snippet": "An inside look at my approach to time series forecasting...",
+        "link": "posts/post2.html"
+    }
+]
