@@ -2,11 +2,11 @@
     {
         "title": "Lessons from My First AI Project",
         "snippet": "Building a crater detection model taught me many lessons...",
-        "link": "posts/post1.html"
+        "link": "posts/blog1.html"
     },
     {
-        "title": "How I Optimized Inventory Forecasting",
-        "snippet": "An inside look at my approach to time series forecasting...",
-        "link": "posts/post2.html"
+        "title": "Optimizing Inventory Forecasting",
+        "snippet": "An inside look at my time series approach...",
+        "link": "posts/blog2.html"
     }
 ]

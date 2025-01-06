@@ -1,42 +1,43 @@
-// Fetch projects and blogs
-async function fetchContent() {
+// Fetch data and populate projects and blogs
+async function loadData() {
     const projectResponse = await fetch('projects.json');
     const blogResponse = await fetch('blogs.json');
+
     const projects = await projectResponse.json();
     const blogs = await blogResponse.json();
 
-    renderProjects(projects);
-    renderBlogs(blogs);
+    populateProjects(projects);
+    populateBlogs(blogs);
 }
 
-// Render Projects
-function renderProjects(projects) {
+function populateProjects(projects) {
     const projectList = document.getElementById('project-list');
-    projects.forEach(project => {
-        projectList.innerHTML += `
-            <div class="project-item">
+    projects.forEach((project) => {
+        const projectHTML = `
+            <div class="card">
                 <img src="${project.image}" alt="${project.title}">
                 <h3>${project.title}</h3>
                 <p>${project.description}</p>
-                <a href="${project.link}">View Project</a>
+                <a href="${project.link}">View Details</a>
             </div>
         `;
+        projectList.innerHTML += projectHTML;
     });
 }
 
-// Render Blogs
-function renderBlogs(blogs) {
+function populateBlogs(blogs) {
     const blogList = document.getElementById('blog-list');
-    blogs.forEach(blog => {
-        blogList.innerHTML += `
-            <div class="blog-item">
+    blogs.forEach((blog) => {
+        const blogHTML = `
+            <div class="card">
                 <h3>${blog.title}</h3>
                 <p>${blog.snippet}</p>
                 <a href="${blog.link}">Read More</a>
             </div>
         `;
+        blogList.innerHTML += blogHTML;
     });
 }
 
-// Initialize
-fetchContent();
+// Call the loadData function
+loadData();
