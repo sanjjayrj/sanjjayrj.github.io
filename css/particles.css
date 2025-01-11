@@ -1,49 +1,26 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     overflow: hidden;
-    background: #222;
-    color: white;
+    background: #121212; /* Dark background for better contrast */
     font-family: Arial, sans-serif;
-}
-
-#particle-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+    color: white;
 }
 
 canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
     display: block;
+    z-index: -1;
 }
 
-.overlay {
-    position: relative;
-    text-align: center;
-    padding-top: 15%;
-}
-
-.overlay h1 {
-    font-size: 3rem;
-}
-
-.overlay p {
-    font-size: 1.2rem;
-}
-
-.overlay nav a {
-    color: #ff4757;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 1.2rem;
-}
-
-.overlay nav a:hover {
-    text-decoration: underline;
+#particle-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
 }
