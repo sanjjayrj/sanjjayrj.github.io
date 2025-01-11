@@ -5,8 +5,8 @@ canvas.height = window.innerHeight;
 
 // Particle settings
 let particleArray = [];
-let adjustX = 100; // Horizontal offset for text
-let adjustY = 100; // Vertical offset for text
+let adjustX = 5; // Horizontal offset for text
+let adjustY = 5; // Vertical offset for text
 
 // Mouse object to track mouse position
 const mouse = {
@@ -30,9 +30,9 @@ window.addEventListener("resize", function () {
 
 // Create particles based on text
 ctx.fillStyle = "white";
-ctx.font = "3vmin sans-serif"; // Font size and family
-ctx.fillText("Welcome to Sanjay's Portfolio", 0, 30); // Customize your text here
-const textCoordinates = ctx.getImageData(0, 0, 600, 400);
+ctx.font = "30px Arial"; // Font size and family
+ctx.fillText("Welcome to Sanjay's Portfolio", 20, 50); // Customize your text here
+const textCoordinates = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
 // Particle blueprint
 class Particle {
