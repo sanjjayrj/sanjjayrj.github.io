@@ -11,17 +11,19 @@ body {
     background-color: #121212;
     color: white;
     overflow-x: hidden;
+    overflow-y: scroll;
     line-height: 1.6;
 }
 
 /* Content wrapper */
 .content {
     position: relative;
-    z-index: 1; /* Ensure content is above the particle canvas */
+    z-index: 1;
     text-align: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 200px 20px 50px;
+    padding: 150px 20px; /* Ensure enough top padding */
+    padding-bottom: 100px; /* Add space at the bottom */
 }
 
 /* Header styling */

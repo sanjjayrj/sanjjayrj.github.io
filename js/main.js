@@ -1,21 +1,28 @@
 // Fetch data and populate projects and blogs
 async function loadData() {
-    const projectResponse = await fetch('projects.json');
-    const blogResponse = await fetch('blogs.json');
+    try
+    {
+        const projectResponse = await fetch('projects.json');
+        const blogResponse = await fetch('blogs.json');
 
-    if (!projectResponse.ok || !blogResponse.ok) {
-        console.error("Failed to load JSON data");
-        return;
+        if (!projectResponse.ok || !blogResponse.ok) {
+            console.error("Failed to load JSON data");
+            return;
+        }
+
+        const projects = await projectResponse.json();
+        const blogs = await blogResponse.json();
+
+        console.log("Projects Data:", projects);
+        console.log("Blogs Data:", blogs);
+
+        populateProjects(projects);
+        populateBlogs(blogs);
     }
-
-    const projects = await projectResponse.json();
-    const blogs = await blogResponse.json();
-
-    console.log("Projects Data:", projects);
-    console.log("Blogs Data:", blogs);
-
-    populateProjects(projects);
-    populateBlogs(blogs);
+    catch (error)
+    {
+        console.error("Error loading JSON files: ", error);
+    }
 }
 
 function populateProjects(projects) {
