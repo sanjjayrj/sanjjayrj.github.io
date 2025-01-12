@@ -30,8 +30,8 @@ window.addEventListener("resize", function () {
 
 // Create particles based on text
 ctx.fillStyle = "white";
-ctx.font = "30px Arial"; // Font size and family
-ctx.fillText("Welcome to Sanjay's Portfolio", 20, 50); // Customize your text here
+ctx.font = "4vmin sans-sarif"; // Font size and family
+ctx.fillText("Welcome to Sanjay's page", 225, 60); // Customize your text here
 const textCoordinates = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
 // Particle blueprint
@@ -39,7 +39,7 @@ class Particle {
     constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.size = 2; // Particle size
+        this.size = 1; // Particle size
         this.baseX = this.x;
         this.baseY = this.y;
         this.density = (Math.random() * 15) + 1;

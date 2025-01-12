@@ -6,19 +6,15 @@
 
 body {
     overflow: hidden;
-    background: #121212; /* Dark background for better contrast */
+    background: #272626; /* Dark background for better contrast */
     font-family: Arial, sans-serif;
     color: white;
 }
 
 canvas {
-    /* position: absolute; */
-    /* top: 0; */
-    /* left: 0; */
     display: block;
     width: 100%;
     height: 100%;
-    /* z-index: -1; */
 }
 
 #particle-container {
@@ -28,68 +24,4 @@ canvas {
     top: 0;
     left: 0;
     z-index: -1;
-}
-
-/* Content layer */
-.content {
-    position: relative;
-    z-index: 1; /* Ensure content is above the canvas */
-    text-align: center;
-    padding-top: 20px; /* Add padding to avoid overlap */
-}
-
-header h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-
-header p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-header nav a {
-    color: #ff4757;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 1.2rem;
-}
-
-header nav a:hover {
-    text-decoration: underline;
-}
-
-/* Projects and blogs section */
-main {
-    padding: 40px 20px;
-}
-
-section {
-    margin-bottom: 40px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.card {
-    background: white;
-    color: black;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.card img {
-    max-width: 100%;
-    border-radius: 8px;
-}
-
-.card a {
-    color: #ff4757;
-    text-decoration: none;
-    font-weight: bold;
 }

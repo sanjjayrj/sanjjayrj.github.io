@@ -3,8 +3,16 @@ async function loadData() {
     const projectResponse = await fetch('projects.json');
     const blogResponse = await fetch('blogs.json');
 
+    if (!projectResponse.ok || !blogResponse.ok) {
+        console.error("Failed to load JSON data");
+        return;
+    }
+
     const projects = await projectResponse.json();
     const blogs = await blogResponse.json();
+
+    console.log("Projects Data:", projects);
+    console.log("Blogs Data:", blogs);
 
     populateProjects(projects);
     populateBlogs(blogs);
@@ -12,32 +20,67 @@ async function loadData() {
 
 function populateProjects(projects) {
     const projectList = document.getElementById('project-list');
-    projects.forEach((project) => {
-        const projectHTML = `
+    if (projects.length === 0) {
+        projectList.innerHTML = `
             <div class="card">
-                <img src="${project.image}" alt="${project.title}">
+                <h3>Sample Project</h3>
+                <p>This is a placeholder for project details.</p>
+                <a href="#">View Details</a>
+            </div>
+        `;
+        return;
+    }
+
+    projects.forEach((project) => {
+        const projectCard = `
+            <div class="card" onclick="window.location.href='${project.link}'">
+                <img src="#" alt="Project Image Placeholder">
                 <h3>${project.title}</h3>
                 <p>${project.description}</p>
                 <a href="${project.link}">View Details</a>
             </div>
         `;
-        projectList.innerHTML += projectHTML;
+        projectList.innerHTML += projectCard;
     });
 }
+{/* <div class="card">
+<img src="${project.image}" alt="${project.title}">
+<h3>${project.title}</h3>
+<p>${project.description}</p>
+<a href="${project.link}">View Details</a>
+</div> */}
 
 function populateBlogs(blogs) {
     const blogList = document.getElementById('blog-list');
-    blogs.forEach((blog) => {
-        const blogHTML = `
+    if (blogs.length === 0) {
+        blogList.innerHTML = `
             <div class="card">
+                <h3>Sample Blog</h3>
+                <p>This is a placeholder for blog details.</p>
+                <a href="#">Read More</a>
+            </div>
+        `;
+        return;
+    }
+
+    blogs.forEach((blog) => {
+        const blogCard = `
+            <div class="card" onclick="window.location.href='${blog.link}'">
+                <img src="#" alt="Blog Image Placeholder">
                 <h3>${blog.title}</h3>
                 <p>${blog.snippet}</p>
                 <a href="${blog.link}">Read More</a>
             </div>
         `;
-        blogList.innerHTML += blogHTML;
+        blogList.innerHTML += blogCard;
     });
 }
 
 // Call the loadData function
 loadData();
+
+{/* <div class="card">
+<h3>${blog.title}</h3>
+<p>${blog.snippet}</p>
+<a href="${blog.link}">Read More</a>
+</div> */}

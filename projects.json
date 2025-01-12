@@ -2,13 +2,11 @@
     {
         "title": "AI Crater Detection",
         "description": "Using deep learning to detect craters on the lunar surface.",
-        "image": "images/crater.png",
         "link": "project.html?project=1"
     },
     {
         "title": "Inventory Forecasting",
         "description": "Time series models to optimize supply chain.",
-        "image": "images/forecasting.png",
         "link": "project.html?project=2"
     }
 ]
