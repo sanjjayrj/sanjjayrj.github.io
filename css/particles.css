@@ -5,13 +5,11 @@
 }
 
 body {
-    overflow-x: hidden;
-    overflow-y: scroll;
-    background: #272626; /* Dark background for better contrast */
-    font-family: Arial, sans-serif;
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #272626;
     color: white;
-    margin: 0;
-    padding: 0;
+    overflow-x: hidden;
 }
 
 canvas {
@@ -21,7 +19,7 @@ canvas {
 }
 
 #particle-container {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;

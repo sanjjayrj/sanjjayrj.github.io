@@ -50,12 +50,6 @@ function populateProjects(projects) {
         projectList.innerHTML += projectCard;
     });
 }
-{/* <div class="card">
-<img src="${project.image}" alt="${project.title}">
-<h3>${project.title}</h3>
-<p>${project.description}</p>
-<a href="${project.link}">View Details</a>
-</div> */}
 
 function populateBlogs(blogs) {
     const blogList = document.getElementById('blog-list');
@@ -85,9 +79,3 @@ function populateBlogs(blogs) {
 
 // Call the loadData function
 loadData();
-
-{/* <div class="card">
-<h3>${blog.title}</h3>
-<p>${blog.snippet}</p>
-<a href="${blog.link}">Read More</a>
-</div> */}

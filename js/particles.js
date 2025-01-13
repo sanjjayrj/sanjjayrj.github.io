@@ -5,8 +5,9 @@ canvas.height = window.innerHeight;
 
 // Particle settings
 let particleArray = [];
-let adjustX = 5; // Horizontal offset for text
-let adjustY = 5; // Vertical offset for text
+let adjustX = 5;
+let adjustY = 5;
+let scrollOffset = 0;
 
 // Mouse object to track mouse position
 const mouse = {
@@ -28,10 +29,15 @@ window.addEventListener("resize", function () {
     init(); // Re-initialize particles
 });
 
+// Update scroll offset on scroll
+window.addEventListener('scroll', function () {
+    scrollOffset = window.scrollY;
+});
+
 // Create particles based on text
 ctx.fillStyle = "white";
 ctx.font = "4vmin sans-sarif"; // Font size and family
-ctx.fillText("Welcome to Sanjay's page", 225, 60); // Customize your text here
+ctx.fillText("Welcome to Sanjay's page", 225, 60+scrollOffset); // Customize your text here
 const textCoordinates = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
 // Particle blueprint
@@ -55,7 +61,7 @@ class Particle {
 
     update() {
         let dx = mouse.x - this.x;
-        let dy = mouse.y - this.y;
+        let dy = mouse.y - (this.y + scrollOffset);
         let distance = Math.sqrt(dx * dx + dy * dy);
         let forceDirectionX = dx / distance;
         let forceDirectionY = dy / distance;
