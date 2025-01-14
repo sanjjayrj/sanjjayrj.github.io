@@ -15,6 +15,7 @@ body {
     overflow-x: hidden;
     line-height: 1.6;
     animation: gradient-bg 10s ease infinite;
+    padding-top: 60px;
 }
 
 @keyframes gradient-bg {
@@ -45,26 +46,30 @@ header p {
 }
 
 header nav {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: transparent;
-    display: flex;
-    gap: 15px;
-    font-size: 1.2rem;
+    position: fixed; /* Keep the menu fixed at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    /*background: rgba(18, 18, 18, 0.8); */
+    z-index: 100; /* Ensure it stays on top */
+    padding: 10px 0;
+    text-align: right;
+    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+    /* backdrop-filter: blur(10px); */
 }
 
 header nav a {
     color: #ff4757;
     text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
+    margin: 0 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
 header nav a:hover {
-    background-color: #ff4757;
-    color: white;
+    color: #ff6b81;
+
 }
 
 /* Section styling */
@@ -268,7 +273,7 @@ button:hover {
 
 #resume-nav {
     position: fixed; /* Stay in place on the right */
-    right: 20px;
+    right: 180px;
     top: 100px;
     width: 200px;
     background-color: #1f1f1f;
