@@ -77,5 +77,4 @@ function populateBlogs(blogs) {
     });
 }
 
-// Call the loadData function
 loadData();

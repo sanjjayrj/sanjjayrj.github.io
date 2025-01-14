@@ -37,7 +37,7 @@ window.addEventListener('scroll', function () {
 // Create particles based on text
 ctx.fillStyle = "white";
 ctx.font = "4vmin sans-sarif"; // Font size and family
-ctx.fillText("Welcome to Sanjay's page", 225, 60+scrollOffset); // Customize your text here
+ctx.fillText("Building the future...", 225, 60+scrollOffset); // Customize your text here
 const textCoordinates = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
 // Particle blueprint

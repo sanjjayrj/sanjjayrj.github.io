@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sanjay Raju | Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/particles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div id="particle-container">
@@ -16,10 +16,17 @@
             <h1>Hi, I'm Sanjay Raju</h1>
             <p>Scroll down to explore my work.</p>
             <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="resume.html">Resume</a>
                 <a href="blog.html">Blog</a>
                 <a href="projects.html">Projects</a>
             </nav>
         </header>
+        <!-- <div class="hero">
+            <h1>Hi, I'm Sanjay Raju</h1>
+            <p class="typewriter">Welcome to my portfolio! Scroll to explore my projects and blogs.</p>
+        </div> -->
 
         <main>
             <!-- Projects Section -->
@@ -33,6 +40,36 @@
                 <h2>Recent Blogs</h2>
                 <div id="blog-list" class="grid"></div>
             </section>
+
+            <!-- Resume Section -->
+            <section id="resume">
+                <h2>My Resume</h2>
+                <div class="resume-content">
+                    <a href="resume.pdf" download class="btn">Download Resume</a>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h3>2023 - Present</h3>
+                            <p>Graduate Studies in Data Science at Stevens Institute of Technology.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h3>2019 - 2023</h3>
+                            <p>Software Engineer at XYZ Company, worked on AI projects.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact">
+                <h2>Contact Me</h2>
+                <form>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </section>
+
         </main>
 
         <footer>

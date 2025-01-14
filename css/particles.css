@@ -5,9 +5,8 @@
 }
 
 body {
-    margin:0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #272626;
+    margin: 0;
+    font-family: Rubik, Helvetica, sans-serif;
     color: white;
     overflow-x: hidden;
 }
