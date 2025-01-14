@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume | Sanjay Raju</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <div id="resume-container">
@@ -13,12 +14,22 @@
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="resume.html">Resume</a>
-                <a href="blogs.html">Blogs</a>
-                <a href="projects.html">Projects</a>
+                <a href="blog.html">Blogs</a>
+                <a href="project.html">Projects</a>
             </nav>
         </header>
     
         <main>
+            <div id="resume-nav">
+                <h3>Navigate</h3>
+                <ul>
+                    <li><i class="fas fa-graduation-cap"></i> <a href="#education">Education</a></li>
+                    <li><i class="fas fa-briefcase"></i> <a href="#experience">Experience</a></li>
+                    <li><i class="fas fa-tools"></i> <a href="#skills">Skills</a></li>
+                    <li><i class="fas fa-project-diagram"></i> <a href="#key-projects">Projects</a></li>
+                    <li><i class="fas fa-certificate"></i>  <a href="#certifications">Certifications</a></li>
+                </ul>
+            </div>
             <!-- Introduction Section -->
             <section id="resume-intro">
                 <h1>My Resume</h1>
@@ -33,20 +44,42 @@
     
             <!-- Education Section -->
             <section id="education">
-                <h2>Education</h2>
-                <div class="education-item">
-                    <h3>Master's in Data Science</h3>
-                    <p>Stevens Institute of Technology | Aug 2023 - May 2025</p>
-                </div>
-                <div class="education-item">
-                    <h3>Bachelor's in Artificial Intelligence</h3>
-                    <p>Amrita Vishwa Vidyapeetham | 2019 - 2023</p>
-                </div>
+                <h2><i class="fas fa-graduation-cap"></i>Education</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Degree</th>
+                            <th>Institution</th>
+                            <th>GPA/CGPA</th>
+                            <th>Timeline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Master's in Data Science</td>
+                            <td>Stevens Institute of Technology</td>
+                            <td>-</td>
+                            <td>Aug 2023 - May 2025</td>
+                        </tr>
+                        <tr>
+                            <td>B-Tech in Artificial Intelligence</td>
+                            <td>Amrita Vishwa Vidyapeetham</td>
+                            <td>8.8/10.0</td>
+                            <td>2019 - 2023</td>
+                        </tr>
+                        <tr>
+                            <td>High School</td>
+                            <td>The Indian School Bahrain</td>
+                            <td>89.2/100.0</td>
+                            <td>2017 - 2019</td>
+                        </tr>
+                    </tbody>
+                </table>
             </section>
-    
+
             <!-- Experience Section -->
             <section id="experience">
-                <h2>Experience</h2>
+                <h2><i class="fas fa-briefcase"></i>Experience</h2>
                 <div class="experience-item">
                     <h3>AI Engineer Intern</h3>
                     <p>Tata Elxsi | Jan 2023 - July 2023</p>
@@ -70,26 +103,38 @@
     
             <!-- Skills Section -->
             <section id="skills">
-                <h2>Technical Skills</h2>
-                <div class="skill">
-                    <label>Python</label>
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 90%;"></div>
-                    </div>
+                <h2><i class="fas fa-tools"></i>Skills</h2>
+                <div class="skills-category">
+                    <h3>Programming Languages</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>JavaScript</li>
+                        <li>SQL</li>
+                    </ul>
                 </div>
-                <div class="skill">
-                    <label>Machine Learning</label>
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 80%;"></div>
-                    </div>
+                <div class="skills-category">
+                    <h3>Data Science</h3>
+                    <ul>
+                        <li>Machine Learning</li>
+                        <li>Deep Learning</li>
+                        <li>Data Visualization (Matplotlib, Seaborn, Tableau)</li>
+                    </ul>
+                </div>
+                <div class="skills-category">
+                    <h3>Tools & Platforms</h3>
+                    <ul>
+                        <li>Google Cloud Platform</li>
+                        <li>AWS</li>
+                        <li>Vertex AI</li>
+                    </ul>
                 </div>
             </section>
     
             <!-- Key Projects Section -->
             <section id="key-projects">
-                <h2>Key Projects</h2>
+                <h2><i class="fas fa-project-diagram"></i>Key Projects</h2>
                 <div class="project-item">
-                    <h3>AI Crater Detection</h3>
+                    <h3>Lunar Crater Detection and Depth Analysis</h3>
                     <p>Developed a deep learning model to detect craters on the lunar surface.</p>
                     <a href="project.html?project=ai-crater-detection" class="btn">View Details</a>
                 </div>
@@ -97,7 +142,7 @@
     
             <!-- Certifications Section -->
             <section id="certifications">
-                <h2>Awards & Certifications</h2>
+                <h2><i class="fas fa-certificate"></i>Awards & Certifications</h2>
                 <ul>
                     <li>Certified Data Scientist – Coursera (2022)</li>
                     <li>Best Project Award – XYZ Hackathon (2021)</li>
