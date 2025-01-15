@@ -23,10 +23,30 @@
                 <h1>My Projects</h1>
                 <div class="projects-grid">
                     <div class="project-card">
+                        <img src="images/job.png" alt="Project Image">
+                        <div class="project-info">
+                            <h3>Job Aggregator Conversational AI Agent</h3>
+                                <p>- Processed user resume and preferences to scrape 1000+ job listings from the last 72 hours.</p>
+                                <p>- Prompt engineered for the GenAI agent to understand user queries to update recommendations.</p>
+                                <p>- Developed a state-of-the-art matching algorithm to rank top 20 jobs for recommendation.</p>
+                                <p>- Interface developed using Flask, GenAI agent able to provide career advice based on resume and recommendations.</p>
+                                <p>- Agent able to dynamically scrape, match and update recommendations based on conversation.</p>
+                                <p>- Technologies used: Python, OpenAI, Embedding Models, Flask, NLTK, PyMuPDF, JobSpy, Pandas.</p>
+                            <a href="job-aggregator.html" class="btn">View Details</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
                         <img src="images/crater.jpg" alt="Project Image">
                         <div class="project-info">
                             <h3>Lunar Crater Detection and Depth Analysis</h3>
-                            <p>Using deep learning to detect craters on the lunar surface from images captured by Chandrayaan-2 satellite.</p>
+                            <p>- Using deep learning to detect craters on the lunar surface from images captured by Chandrayaan-2 satellite.</p>
+                            <p>- Created a dataset using web scraping and used Google Colab Pro to handle the huge dataset size; analyzed images obtained
+                                from the Optical High-Resolution Camera on Chandrayaan-2 satellite, accessed from the ISRO website.</p>
+                            <p>- Manually labelled 900+ images of craters and trained a R-CNN and YoloV5 model to detect craters.</p>
+                            <p>- Implemented a geospatial coordinate tracking and depth analysis algorithm to estimate the location and depth of the craters.</p>
+                            <p>- Recorded an accuracy of 85% in detecting craters</p>
+                            <p>- Technologies used: Python, Keras, OpenCV, RoboFlow and NumPy.</p>
                             <a href="ai-crater-detection.html" class="btn">View Details</a>
                         </div>
                     </div>
@@ -50,18 +70,29 @@
                                 <p>- Processed the data from Flickr30k dataset– both image and caption vectors – by passing them through LSTM layer and
                                     Feed Forward Neural Network.</p>
                                 <p>- Recorded an accuracy of 78% in recognizing images and providing appropriate captions.</p>
-                                <a href="https://github.com/sanjjayrj/Image-Captioning" class="btn">View Details</a>
                         </div>
                     </div>
                     <div class="project-card">
-                        <img src="images/Mental_Health_Technology.jpg" alt="Project Image">
+                        <img src="images/video_recog.jpg" alt="Project Image">
                         <div class="project-info">
-                            <h3>Data Analysis to understand mental health in tech industry</h3>
-                                <p>- Using a multi-model system to recognize and output captions describing the images.</p>
-                                <p>- Processed the data from Flickr30k dataset– both image and caption vectors – by passing them through LSTM layer and
-                                    Feed Forward Neural Network.</p>
-                                <p>- Recorded an accuracy of 78% in recognizing images and providing appropriate captions.</p>
-                                <a href="https://github.com/sanjjayrj/Image-Captioning" class="btn">View Details</a>
+                            <h3>ML in Video Processing and Interpretation</h3>
+                                <p>- Worked with a team of 30 members to develop a multimillion-dollar project that was based on video processing and
+                                    interpretation.</p>
+                                <p>- Created a unified pipeline using C++ for processing multiple machine learning models.</p>
+                                <p>- Conducted performance analysis and executed extensive testing on multiple iterations of the same models.</p>
+                                <p>- Enhanced the pipeline performance by implementing CUDA acceleration.</p>
+                                <p>- Built a multithreaded program that seamlessly integrates all the mentioned components, enabling efficient processing of
+                                    multiple inputs simultaneously.</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="images/driver_drowsiness.jpg" alt="Project Image">
+                        <div class="project-info">
+                            <h3>Driver Drowsiness Detection</h3>
+                                <p>- Developed a system that detects driver drowsiness using a camera and alerts the driver.</p>
+                                <p>- Used OpenCV to detect facial landmarks and track the driver</p>
+                                <p>- Implemented a CNN model to detect the driver's eyes and determine the level of drowsiness observed.</p>
+                                <p>- Early warning implemented by system looking at signs such as driver yawning.</p>
                         </div>
                     </div>
                 </div>
