@@ -37,27 +37,28 @@
 }
 
 /* Fun Facts Section */
-.fun-facts {
-    margin-top: 50px;
-}
-
-.fun-facts h2 {
-    font-size: 2rem;
-    color: #ff4757;
-    margin-bottom: 15px;
-}
-
-.fun-facts ul {
-    list-style-type: disc;
-    padding-left: 40px;
+#fun-facts {
     text-align: left;
+    margin: auto;
+    max-width: 950px;
+    padding-top: 30px;
 }
 
-.fun-facts ul li {
-    font-size: 1rem;
-    color: #ccc;
-    margin-bottom: 10px;
+#fun-facts h2 {
+    text-align: center; /* Keep the heading centered */
+    font-size: 2.5rem;
+    color: #ff4757;
+    margin-bottom: 20px;
 }
+
+#fun-facts ul {
+    list-style-type: disc; /* Use disc bullets */
+    margin-left: 20px; /* Indent list from the left */
+    color: #ddd; /* Match text color to the rest */
+    font-size: 1.2rem; /* Ensure consistent font size */
+    line-height: 1.8; /* Improve readability */
+}
+
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
