@@ -3,28 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Details | Sanjay Raju</title>
+    <title>Projects | Sanjay Raju</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/projects.css">
 </head>
 <body>
-    <header>
-        <h1>Project Details</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="blog.html">Blog</a>
-        </nav>
-    </header>
+    <div class="content">
+        <header>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="resume.html">Resume</a>
+                <a href="blog.html">Blog</a>
+                <a href="project.html">Projects</a>
+            </nav>
+        </header>
+        <main>
+            <section id="projects">
+                <h1>My Projects</h1>
+                <div class="projects-grid">
+                    <!-- Example Project Card -->
+                    <div class="project-card">
+                        <img src="images/crater.jpg" alt="Project Image">
+                        <div class="project-info">
+                            <h3>Lunar Crater Detection and Depth Analysis</h3>
+                            <p>Using deep learning to detect craters on the lunar surface from images captured by Chandrayaan-2 satellite.</p>
+                            <a href="ai-crater-detection.html" class="btn">View Details</a>
+                        </div>
+                    </div>
 
-    <main>
-        <section id="project-details">
-            <h2>Project Title</h2>
-            <p>Description of the project goes here. You can dynamically load project details if required.</p>
-            <img src="images/sample-project.png" alt="Project Image">
-        </section>
-    </main>
+                    <!-- Smaller Project Example -->
+                    <div class="project-card">
+                        <img src="images/img_caption.png" alt="Project Image">
+                        <div class="project-info">
+                            <h3>Image Captioning System</h3>
+                                <p>- Using a multi-model system to recognize and output captions describing the images.</p>
+                                <p>- Processed the data from Flickr30k dataset– both image and caption vectors – by passing them through LSTM layer and
+                                    Feed Forward Neural Network.</p>
+                                <p>- OpenCV</p>
+                        </div>
+                    </div>
 
-    <footer>
-        <p>&copy; 2025 Sanjay Raju</p>
-    </footer>
+                    <!-- Add more project cards as needed -->
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2025 Sanjay Raju</p>
+        </footer>
+    </div>
 </body>
 </html>
