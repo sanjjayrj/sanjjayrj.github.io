@@ -59,7 +59,6 @@
     line-height: 1.8; /* Improve readability */
 }
 
-
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .about-container {
@@ -71,17 +70,6 @@
         height: 200px;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /* Values and Mission Section */
 #values-mission {
@@ -130,11 +118,11 @@
     color: #ddd;
 }
 
-.values ul li img {
+.values ul li i {
     width: 24px;
     height: 24px;
     margin-right: 10px;
-    filter: brightness(0) invert(1); /* Ensure white icons on dark background */
+    filter: brightness(0) invert(1);
 }
 
 .mission p {
