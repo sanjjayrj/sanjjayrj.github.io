@@ -3,23 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Crater Detection</title>
+    <title>AI Crater Detection | Sanjay Raju</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/project-detail.css">
 </head>
 <body>
-    <header>
-        <h1>AI Crater Detection</h1>
-        <p>A deep dive into my lunar surface analysis project.</p>
-    </header>
-    <main>
-        <img src="../images/project1.png" alt="AI Crater Detection">
-        <p>In this project, I developed a deep learning model to identify craters on the lunar surface using satellite images. The model achieved 95% accuracy and utilized TensorFlow and OpenCV.</p>
-    </main>
-    <footer>
-        <nav>
-            <a href="../index.html">Home</a>
-            <a href="../blog.html">Blog</a>
-        </nav>
-    </footer>
+    <div class="content">
+        <header>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../about.html">About</a>
+                <a href="../resume.html">Resume</a>
+                <a href="../blog.html">Blog</a>
+                <a href="../project.html">Projects</a>
+            </nav>
+        </header>
+        <main>
+            <section id="project-detail">
+                <h1>AI Crater Detection</h1>
+                <img src="../images/crater.jpg" alt="AI Crater Detection" class="project-image">
+
+                <div class="project-content">
+                    <h2>Project Overview</h2>
+                    <p>
+                        This project involved leveraging deep learning techniques to detect craters on the lunar surface using satellite imagery. 
+                        It utilized convolutional neural networks (CNNs) and was built as part of a research initiative for lunar mapping.
+                    </p>
+
+                    <h2>Key Features</h2>
+                    <ul>
+                        <li>Data preparation of 900+ images that were acquired from the official ISRO website.</li>
+                        <li>Each image captured by the OHRC (Optical High Resolution Camera) that had 1M pixels were cropped into many images that covered 120meter square each.</li>
+                        <li>Data preprocessing with advanced augmentation techniques.</li>
+                        <li>Custom CNN model for object detection and classification.</li>
+                        <li>Achieved a detection accuracy of over 92% on test datasets.</li>
+                    </ul>
+
+                    <h2>Technical Stack</h2>
+                    <ul>
+                        <li>Python, TensorFlow, Keras</li>
+                        <li>NumPy, OpenCV, PDS4</li>
+                        <li>VS Code, RoboFlow</li>
+                    </ul>
+
+                    <h2>Challenges and Learnings</h2>
+                    <p>
+                        One major challenge was the enormous size of the each image. So, for the dataset, as smaller craters were underrepresented. 
+                        Techniques like oversampling and data augmentation proved crucial in addressing this issue.
+                    </p>
+
+                    <h2>Outcome</h2>
+                    <p>
+                        This project resulted in a journal publication and was recognized as an innovative application of AI in space exploration.
+                    </p>
+
+                    <h2>Links</h2>
+                    <ul>
+                        <li><a href="https://github.com/your-repo" target="_blank" class="btn">GitHub Repository</a></li>
+                        <li><a href="https://doi.org/your-paper" target="_blank" class="btn">Research Paper</a></li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2025 Sanjay Raju</p>
+        </footer>
+    </div>
 </body>
 </html>
