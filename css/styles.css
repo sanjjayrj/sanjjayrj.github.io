@@ -45,17 +45,59 @@ header p {
     margin-bottom: 20px;
 }
 
+/* Top Navigation Bar */
 header nav {
-    position: fixed; /* Keep the menu fixed at the top */
+    position: fixed; /* Stays at the top */
     top: 0;
     left: 0;
     width: 100%;
-    /*background: rgba(18, 18, 18, 0.8); */
-    z-index: 100; /* Ensure it stays on top */
+    background: rgba(18, 18, 18, 0.9); /* Semi-transparent dark background */
+    z-index: 1000;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: flex-end; /* Aligns links to the right */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth hide/show */
+}
+
+header nav a {
+    color: #ff4757;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+header nav a:hover {
+    color: #ff6b81;
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* For hiding the navigation bar */
+.nav-hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
+/* 
+header nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
     padding: 10px 0;
     text-align: right;
-    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
-    /* backdrop-filter: blur(10px); */
 }
 
 header nav a {
@@ -70,7 +112,7 @@ header nav a {
 header nav a:hover {
     color: #ff6b81;
 
-}
+} */
 
 /* Section styling */
 main {
@@ -312,11 +354,11 @@ button:hover {
 
 #resume-container {
     max-width: 1000px;
-    margin:0 auto; /* Center the container */
+    margin:0 auto;
     padding: 40px 15px;
-    background-color: #1f1f1f; /* Add a subtle background if needed */
-    border-radius: 10px; /* Optional: Add rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 #resume-intro {
@@ -342,7 +384,7 @@ button:hover {
 }
 
 #education table {
-    width: 100%; /* Full width of the container */
+    width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
@@ -350,7 +392,7 @@ button:hover {
 #education th, #education td {
     padding: 10px 15px;
     text-align: left;
-    border: 1px solid #ddd; /* Add borders for clarity */
+    border: 1px solid #ddd;
     color: #ddd;
     font-weight: bold;
 }

@@ -77,4 +77,18 @@ function populateBlogs(blogs) {
     });
 }
 
+let lastScrollTop = 0;
+const navbar = document.querySelector('header nav');
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop) {
+        // Scrolling down
+        navbar.classList.add('nav-hidden');
+    } else {
+        // Scrolling up
+        navbar.classList.remove('nav-hidden');
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Avoid negative scroll values
+});
 loadData();
