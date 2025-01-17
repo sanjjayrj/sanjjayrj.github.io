@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Aggregator Agent | Sanjay Raju</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/project-detail.css">
+</head>
+<body>
+    <div class="content">
+        <header>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../about.html">About</a>
+                <a href="../resume.html">Resume</a>
+                <a href="../blog.html">Blog</a>
+                <a href="../project.html">Projects</a>
+            </nav>
+        </header>
+        <main>
+            <section id="project-detail">
+                <h1>Job Aggregator Agent</h1>
+                <img src="../images/job.png" alt="Job Aggregator Agent" class="project-image">
+
+                <div class="project-content">
+                    <h2>Project Overview</h2>
+                    <p>
+                        The Job Aggregator Agent is an intelligent system designed to extract, aggregate, and present job opportunities from various platforms. 
+                        Using generative AI techniques, it structures unstructured job postings into a clean, queryable format, tailored for the NYC job market.
+                    </p>
+
+                    <h2>Key Features</h2>
+                    <ul>
+                        <li>Processed user resume and preferences to scrape 1000+ job listings from the last 72 hours.</li>
+                        <li>Automatically scrapes job postings from multiple platforms (e.g., LinkedIn, Indeed).</li>
+                        <li>Uses a generative AI model to parse unstructured job descriptions into structured data (e.g., job title, skills, salary).</li>
+                        <li>Prompt engineered for the GenAI agent to understand user queries to update recommendations.</li>
+                        <li>Developed a state-of-the-art matching algorithm to rank top 20 jobs for recommendation.</li>
+                        <li>Agent is able to provide career advice based on resume and top 20 job recommendations.</li>
+                        <li>Agent able to dynamically scrape, match and update recommendations based on conversation.</li>
+                        <li>Technologies used: Python, OpenAI, Embedding Models, Flask, NLTK, PyMuPDF, JobSpy, Pandas.</li>
+                    </ul>
+
+                    <h2>Technical Stack</h2>
+                    <ul>
+                        <li>Python (Flask for backend, BeautifulSoup/Scrapy for scraping)</li>
+                        <li>Generative AI Models (OpenAI APIs for text parsing and embedding)</li>
+                        <li>React (Frontend for user interaction)</li>
+                        <li>Pandas and Matplotlib (Data processing and visualization)</li>
+                        <li>MongoDB (Database for job postings)</li>
+                    </ul>
+
+                    <h2>Challenges and Learnings</h2>
+                    <p>
+                        One challenge was handling inconsistencies in job posting formats across platforms. Leveraging OpenAI's GPT APIs allowed me to standardize this data efficiently.
+                        Another learning was optimizing scraping techniques to avoid being blocked by platforms. I implemented rate limiting and caching strategies to ensure smooth data retrieval.
+                        Increased size of jobs scrapped led to increased expenses for cloud computing. I optimized the code to reduce costs while maintaining performance. This was done by storing previously created embeddings for jobs scrapped into a json file.
+                        This was then retrieved when a similar job was scrapped, reducing the number of API calls to OpenAI.
+                        Prompt engineering was another challenge. I had to experiment with different prompts to get the best results for the GenAI agent. Since multiple use cases of the agent were possible, I had to design multiple prompts that could 
+                        handle a variety of user queries and then categorize them into a few possible outputs. Based on this either scraping and matching were done, or career advice was given. The career advice part needed more prompts to handle the variety of user queries.
+                        Overall, the project was a great learning experience in building a conversational AI agent that could interact with users and provide them with valuable information.
+                    </p>
+
+                    <h2>Outcome</h2>
+                    <p>
+                        The agent streamlined the job search process, saving users hours of manual effort. It demonstrated potential for integration with larger HR systems or as a standalone job board service.
+                    </p>
+
+                    <h2>Future Enhancements</h2>
+                    <ul>
+                        <li>Integrating a recommendation system to suggest jobs based on user profiles.</li>
+                        <li>Adding support for real-time alerts via email or SMS for new postings.</li>
+                        <li>Expanding support to global job markets beyond NYC.</li>
+                        <li>This application has a good opportunity to be turned into a business.</li>
+                    </ul>
+
+                    <h2>Links</h2>
+                    <ul>
+                        <li><a href="https://github.com/sanjjayrj/Job-Aggregator-Conversational-Gen-AI-Agent" target="_blank" class="btn">GitHub Repository</a></li>
+                        <li><a href="https://demo-job-aggregator.example.com" target="_blank" class="btn">Live Demo</a></li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2025 Sanjay Raju</p>
+        </footer>
+    </div>
+</body>
+</html>
