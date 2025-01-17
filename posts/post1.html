@@ -33,7 +33,7 @@
                     <h2>Key Features</h2>
                     <ul>
                         <li>Data preparation of 900+ images that were acquired from the official ISRO website.</li>
-                        <li>Each image captured by the OHRC (Optical High Resolution Camera) that had 1M pixels were cropped into many images that covered 120meter square each.</li>
+                        <li>Each image captured by the OHRC that had 1M pixels were cropped into many images that covered 120meter square each.</li>
                         <li>Data preprocessing with advanced augmentation techniques.</li>
                         <li>Custom CNN model for object detection and classification.</li>
                         <li>Achieved a detection accuracy of over 92% on test datasets.</li>
@@ -48,19 +48,25 @@
 
                     <h2>Challenges and Learnings</h2>
                     <p>
-                        One major challenge was the enormous size of the each image. So, for the dataset, as smaller craters were underrepresented. 
-                        Techniques like oversampling and data augmentation proved crucial in addressing this issue.
+                        One major challenge was the enormous size of the each image. Each image captured by the Optical High Resolution Camera (OHRC) covers an area of 12km by 3km of the moon with a ground resolution of 0.19m or 19cm.
+                        Faced with this mammoth challenge, we turned to PDS4 datatype, which is the planetary data system format the image is stored in, to then crop the image into a lot of 
+                        smaller images of 640x640 pixels that covered an area of 120m by 120m each. One of the biggest challenges was manually labelling every crater in each of the smaller images.
+                        As the dataset was manually labelled, it was prone to human error. Some of the smaller carters were missed during the labelling process. But this can be justified because of the ones missed, the craters would be smaller, around 1-10m in diameter.
+                        But the model was trained on the larger craters, around 10-100m in diameter. So, for the final dataset, as smaller craters were underrepresented. 
+                        Techniques like oversampling and data augmentation proved crucial in addressing this issue. Since the depth of these smaller craters was not available, we had to estimate the depth of the craters based on the size of the crater.
+                        For the purpose of our paper, which is to suggest a novel approach for finding good landing spots on the lunar surface, omitting smaller craters of 1-10m in diameter was not a big issue. So, we proceeded with the dataset we had.
+                        You can find my research paper on this project linked below to the Journal of the Indian Society of Remote Sensing.
                     </p>
 
                     <h2>Outcome</h2>
                     <p>
-                        This project resulted in a journal publication and was recognized as an innovative application of AI in space exploration.
+                        This project resulted in a journal publication in the Journal of the Indian Society of Remote Sensing, and was recognized as an innovative application of AI in space exploration.
                     </p>
 
                     <h2>Links</h2>
                     <ul>
-                        <li><a href="https://github.com/your-repo" target="_blank" class="btn">GitHub Repository</a></li>
-                        <li><a href="https://doi.org/your-paper" target="_blank" class="btn">Research Paper</a></li>
+                        <li><a href="https://github.com/sanjjayrj" target="_blank" class="btn">GitHub Repository</a></li>
+                        <li><a href="https://doi.org/10.1007/s12524-024-01909-y" target="_blank" class="btn">Research Paper</a></li>
                     </ul>
                 </div>
             </section>
