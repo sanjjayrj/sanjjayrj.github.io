@@ -37,7 +37,7 @@ window.addEventListener('scroll', function () {
 // Create particles based on text
 ctx.fillStyle = "rgba(173, 216, 230, 0.8)"; // Coral Particles
 ctx.font = "4vmin Old English Text MT";
-ctx.fillText("Welcome to my world...", 100, 100 + scrollOffset);
+ctx.fillText("Innovating with AI", 100, 100 + scrollOffset);
 const textCoordinates = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
 // Particle blueprint

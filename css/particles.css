@@ -6,7 +6,7 @@
 
 body {
     margin: 0;
-    font-family: Rubik, Helvetica, sans-serif;
+    font-family: 'Poppins', sans-serif; /* Updated font */
     color: white;
     overflow-x: hidden;
 }
@@ -19,7 +19,7 @@ canvas {
 
 #particle-container {
     position: absolute;
-    top: 50%;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;

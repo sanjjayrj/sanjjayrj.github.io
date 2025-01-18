@@ -1,4 +1,3 @@
-/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -29,11 +28,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    padding: 50px;
+    height: 50vh;
+    padding: 10px;
     position: relative;
     z-index: 2;
-    gap: 40px;
+    gap: 10px;
 }
 
 .intro-text {
@@ -59,7 +58,6 @@ footer p {
     font-size: 0.9rem;
     text-align: center;
     color: rgba(255, 255, 255, 0.6);
-    margin-top: 30px;
 }
 
 /* Content wrapper */
@@ -134,7 +132,7 @@ header nav a:hover {
 /* Section styling */
 main {
     padding: 40px 20px;
-    padding-bottom: 150px;
+    padding-bottom: 30;
 }
 
 section {
