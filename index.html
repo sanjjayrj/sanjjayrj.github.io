@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,25 +23,17 @@
                 <a href="project.html">Projects</a>
             </nav>
         </header>
-        <!-- <div class="hero">
-            <h1>Hi, I'm Sanjay Raju</h1>
-            <p class="typewriter">Welcome to my portfolio! Scroll to explore my projects and blogs.</p>
-        </div> -->
 
         <main>
-            <!-- Projects Section -->
             <section id="projects">
                 <h2>My Projects</h2>
                 <div id="project-list" class="grid"></div>
             </section>
-
-            <!-- Blogs Section -->
             <section id="blogs">
                 <h2>Recent Blogs</h2>
                 <div id="blog-list" class="grid"></div>
             </section>
 
-            <!-- Resume Section -->
             <section id="resume">
                 <h2>My Resume</h2>
                 <div class="resume-content">
@@ -59,7 +51,6 @@
                 </div>
             </section>
 
-            <!-- Contact Section -->
             <section id="contact">
                 <h2>Contact Me</h2>
                 <form>
@@ -79,5 +70,69 @@
 
     <script src="js/particles.js"></script>
     <script src="js/main.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanjay Raju | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/particles.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="particle-container">
+        <canvas id="myCanvas"></canvas>
+    </div>
+    <div class="content">
+        <header>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="resume.html">Resume</a>
+                <a href="blog.html">Blog</a>
+                <a href="project.html">Projects</a>
+            </nav>
+        </header>
+        
+        <main>
+            <section id="intro">
+                <div class="intro-container">
+                    <div class="image-wrapper">
+                        <img src="images/Profile.jpg" alt="Sanjay Raju" class="profile-img">
+                    </div>
+                    <div class="intro-text">
+                        <h1>Hi, I'm Sanjay Raju</h1>
+                        <p>Data Scientist | AI Enthusiast | Innovator</p>
+                    </div>
+                </div>
+            </section>
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const navbar = document.querySelector("header nav");
+                    let lastScrollTop = 0;
+
+                    window.addEventListener("scroll", () => {
+                        const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                        if (currentScrollTop > lastScrollTop) {
+                            navbar.classList.add("nav-hidden"); // Hide on scroll down
+                        } else {
+                            navbar.classList.remove("nav-hidden"); // Show on scroll up
+                        }
+                        lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // Prevent negative scroll values
+                    });
+                });
+            </script>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Sanjay Raju</p>
+        </footer>
+    </div>
+
+    <script src="js/particles.js"></script>
 </body>
 </html>
