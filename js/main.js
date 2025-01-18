@@ -80,15 +80,19 @@ function populateBlogs(blogs) {
 let lastScrollTop = 0;
 const navbar = document.querySelector('header nav');
 
-window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrollTop > lastScrollTop) {
-        // Scrolling down
-        navbar.classList.add('nav-hidden');
-    } else {
-        // Scrolling up
-        navbar.classList.remove('nav-hidden');
-    }
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Avoid negative scroll values
+document.addEventListener("DOMContentLoaded", () => {
+    const navbar = document.querySelector("header nav");
+    let lastScrollTop = 0;
+
+    window.addEventListener("scroll", () => {
+        const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (currentScrollTop > lastScrollTop) {
+            navbar.classList.add("nav-hidden"); // Hide on scroll down
+        } else {
+            navbar.classList.remove("nav-hidden"); // Show on scroll up
+        }
+        lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // Prevent negative scroll values
+    });
 });
+
 loadData();

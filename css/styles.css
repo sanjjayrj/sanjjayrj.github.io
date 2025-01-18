@@ -51,13 +51,14 @@ header nav {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(18, 18, 18, 0.9); /* Semi-transparent dark background */
+    background: linear-gradient(45deg, rgba(18, 18, 18, 0.8), rgba(30, 30, 30, 0.8));
     z-index: 1000;
-    padding: 15px 20px;
+    padding: 10px 20px;
     display: flex;
     justify-content: flex-end; /* Aligns links to the right */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth hide/show */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px); /* Adds subtle blur */
+    transition: transform 0.4s ease, background 0.3s ease;
 }
 
 header nav a {
@@ -66,7 +67,7 @@ header nav a {
     margin: 0 15px;
     font-size: 1.2rem;
     font-weight: bold;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: color 0.3s, transform 0.3s;
 }
 
 header nav a:hover {
@@ -74,45 +75,10 @@ header nav a:hover {
     transform: scale(1.1); /* Slight zoom on hover */
 }
 
-/* For hiding the navigation bar */
+/* Hides navigation bar */
 .nav-hidden {
     transform: translateY(-100%);
-    opacity: 0;
 }
-
-
-
-
-
-
-
-
-
-
-/* 
-header nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
-    padding: 10px 0;
-    text-align: right;
-}
-
-header nav a {
-    color: #ff4757;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-header nav a:hover {
-    color: #ff6b81;
-
-} */
 
 /* Section styling */
 main {

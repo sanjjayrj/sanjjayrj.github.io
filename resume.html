@@ -192,6 +192,22 @@
                     </ul>
                 </div>
             </section>
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const navbar = document.querySelector("header nav");
+                    let lastScrollTop = 0;
+
+                    window.addEventListener("scroll", () => {
+                        const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                        if (currentScrollTop > lastScrollTop) {
+                            navbar.classList.add("nav-hidden"); // Hide on scroll down
+                        } else {
+                            navbar.classList.remove("nav-hidden"); // Show on scroll up
+                        }
+                        lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // Prevent negative scroll values
+                    });
+                });
+            </script>
         </main>
     
         <footer>
