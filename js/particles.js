@@ -13,7 +13,7 @@ let scrollOffset = 0;
 const mouse = {
     x: null,
     y: null,
-    radius: 150 // Radius of interaction
+    radius: 150
 };
 
 // Update mouse position on move
@@ -26,7 +26,7 @@ window.addEventListener("mousemove", function (event) {
 window.addEventListener("resize", function () {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    init(); // Re-initialize particles
+    init();
 });
 
 // Update scroll offset on scroll
@@ -35,8 +35,8 @@ window.addEventListener('scroll', function () {
 });
 
 // Create particles based on text
-ctx.fillStyle = "rgba(173, 216, 230, 0.8)"; // Coral Particles
-ctx.font = "4vmin Old English Text MT";
+ctx.fillStyle = "rgba(211, 211, 211, 0.8)";
+ctx.font = "4vmin Roboto Mono";
 ctx.fillText("Innovating with AI", 100, 100 + scrollOffset);
 const textCoordinates = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
@@ -45,14 +45,13 @@ class Particle {
     constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.size = 1; // Particle size
+        this.size = 1;
         this.baseX = this.x;
         this.baseY = this.y;
         this.density = (Math.random() * 15) + 1;
     }
 
     draw() {
-        ctx.fillStyle = "coral"; // Particle color
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.closePath();
