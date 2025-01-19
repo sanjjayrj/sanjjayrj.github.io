@@ -61,11 +61,16 @@ body.no-scroll {
 footer p {
     font-size: 0.9rem;
     text-align: center;
+    align-items: center;
     color: rgba(255, 255, 255, 0.6);
 }
 
 footer .social-icons {
+    display: flex;
+    justify-content: center; /* Centers the icons horizontally */
+    align-items: center;
     margin-top: 10px;
+    gap: 20px; /* Adds space between the icons */
 }
 
 footer .social-link {
@@ -79,7 +84,6 @@ footer .social-link:hover {
     color: #ff6b81; /* Slightly lighter shade on hover */
     transform: scale(1.2); /* Enlarge icon on hover */
 }
-
 
 /* Content wrapper */
 .content {
