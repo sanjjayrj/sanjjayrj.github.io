@@ -558,9 +558,14 @@ ul {
     }
 
     /* Profile Image (on index page) */
-    #profile-pic {
-        width: 150px; /* Adjust size */
+    .profile-img {
+        width: 150px;
         height: 150px;
+        border-radius: 50%;
+        object-fit:scale-down; 
+        border: 4px solid rgba(255, 71, 87, 0.8); /* Subtle border matching particles */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        animation: float 3s ease-in-out infinite;
     }
 
     #intro-text h1 {
