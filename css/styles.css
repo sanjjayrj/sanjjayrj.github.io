@@ -543,6 +543,27 @@ ul {
         margin: 0 auto;
     }
 
+    #education table {
+        display: block; /* Make the table a block element */
+        width: 100%; /* Ensure it fits within the screen */
+        overflow-x: auto; /* Add horizontal scrolling if necessary */
+        white-space: nowrap; /* Prevent text from wrapping inside cells */
+        border-spacing: 0; /* Adjust spacing for better alignment */
+    }
+
+    #education th, #education td {
+        padding: 10px; /* Reduce padding for smaller screens */
+        font-size: 0.9rem; /* Adjust font size for better readability */
+    }
+
+    #education th {
+        text-align: left; /* Align header text to the left for consistency */
+    }
+
+    #education td {
+        text-align: left; /* Align content text to the left */
+    }
+
     /* Contact Form */
     form {
         gap: 10px; /* Reduce gaps between input fields */
