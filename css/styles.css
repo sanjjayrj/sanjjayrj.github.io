@@ -46,7 +46,7 @@ body.no-scroll {
 
 .intro-text h1 {
     font-size: 2.5rem;
-    font-weight: 500; /* Lighter header */
+    font-weight: 500;
     color: #ff4757;
     margin-bottom: 10px;
 }
@@ -67,22 +67,22 @@ footer p {
 
 footer .social-icons {
     display: flex;
-    justify-content: center; /* Centers the icons horizontally */
+    justify-content: center;
     align-items: center;
     margin-top: 10px;
-    gap: 20px; /* Adds space between the icons */
+    gap: 20px;
 }
 
 footer .social-link {
     margin: 0 10px;
     font-size: 1.5rem;
-    color: #ff4757; /* Highlight color for the icons */
+    color: #ff4757;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 footer .social-link:hover {
-    color: #ff6b81; /* Slightly lighter shade on hover */
-    transform: scale(1.2); /* Enlarge icon on hover */
+    color: #ff6b81;
+    transform: scale(1.2);
 }
 
 /* Content wrapper */
@@ -92,7 +92,7 @@ footer .social-link:hover {
     text-align: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 150px 20px; /* Ensure enough top padding */
+    padding: 150px 20px;
 }
 
 /* Header styling */
@@ -111,7 +111,7 @@ header nav {
     position: fixed;
     top: 0;
     right: 0;
-    background: none; /* Blends into the background */
+    background: none;
     padding: 15px;
     z-index: 1000;
     display: flex;
@@ -120,8 +120,8 @@ header nav {
 
 header nav a {
     font-size: 1rem;
-    font-weight: 400; /* Lighter font weight */
-    color: rgba(255, 255, 255, 0.8); /* Subtle color */
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -140,7 +140,7 @@ header nav a:hover {
     height: 300px;
     border-radius: 50%;
     object-fit:scale-down; 
-    border: 4px solid rgba(255, 71, 87, 0.8); /* Subtle border matching particles */
+    border: 4px solid rgba(255, 71, 87, 0.8);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     animation: float 3s ease-in-out infinite;
 }
@@ -424,7 +424,7 @@ h2 i {
 }
 
 p {
-    line-height: 1.8; /* Increase readability */
+    line-height: 1.8;
     margin-bottom: 15px;
 }
 
@@ -432,34 +432,34 @@ ul {
     margin-bottom: 20px;
 }
 
-/* Responsive Design for Mobile (styles.css) */
+/* Responsive Design for Mobile */
 @media (max-width: 768px) {
     #particle-container {
-        display: none; /* Hide the particles on smaller screens */
+        display: none;
     }
 
     header nav {
-        display: none; /* Initially hidden */
+        display: none;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        position: fixed; /* Fixed to cover the whole screen */
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%; /* Full height */
-        background: rgba(18, 18, 18, 0.95); /* Slightly transparent dark background */
+        height: 100%;
+        background: rgba(18, 18, 18, 0.95);
         z-index: 1000;
         padding: 20px;
     }
 
     header nav.active {
-        display: flex; /* Show the menu when toggled */
+        display: flex;
     }
 
     header nav a {
-        margin: 20px 0; /* Space out the menu links */
-        font-size: 1.5rem; /* Larger font size for visibility */
+        margin: 20px 0;
+        font-size: 1.5rem;
         color: #ff4757;
         text-transform: uppercase;
         font-weight: bold;
@@ -510,31 +510,31 @@ ul {
 
     /* Section Headers */
     section h2 {
-        font-size: 1.8rem; /* Reduce size for headings */
+        font-size: 1.8rem;
     }
 
     /* Grid Layouts */
     .grid {
-        grid-template-columns: 1fr; /* Single column layout */
+        grid-template-columns: 1fr;
     }
 
     .card {
-        text-align: center; /* Center-align content */
+        text-align: center;
     }
 
     /* Footer Social Icons */
     footer .social-icons {
-        justify-content: center; /* Center-align social icons */
+        justify-content: center;
         margin-top: 10px;
     }
 
     footer .social-icons a {
-        margin: 0 10px; /* Add spacing between icons */
+        margin: 0 10px;
     }
 
     /* Resume Navigation */
     #resume-nav {
-        display: none; /* Hide right-side navigation on smaller screens */
+        display: none;
     }
 
     /* Resume Content Adjustments */
@@ -544,53 +544,52 @@ ul {
     }
 
     #education table {
-        display: block; /* Make the table a block element */
-        width: 100%; /* Ensure it fits within the screen */
-        overflow-x: auto; /* Add horizontal scrolling if necessary */
-        white-space: nowrap; /* Prevent text from wrapping inside cells */
-        border-spacing: 0; /* Adjust spacing for better alignment */
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        border-spacing: 0;
     }
 
     #education th, #education td {
-        padding: 10px; /* Reduce padding for smaller screens */
-        font-size: 0.9rem; /* Adjust font size for better readability */
+        padding: 10px;
+        font-size: 0.9rem;
     }
 
     #education th {
-        text-align: left; /* Align header text to the left for consistency */
+        text-align: left;
     }
 
     #education td {
-        text-align: left; /* Align content text to the left */
+        text-align: left;
     }
 
     /* Contact Form */
     form {
-        gap: 10px; /* Reduce gaps between input fields */
+        gap: 10px;
     }
 
     input, textarea {
-        font-size: 0.9rem; /* Smaller font sizes for inputs */
+        font-size: 0.9rem;
     }
 
     button {
-        font-size: 1rem; /* Ensure buttons remain touch-friendly */
+        font-size: 1rem;
         padding: 10px;
     }
 
-    /* Profile Image (on index page) */
     .profile-img {
         width: 150px;
         height: 150px;
         border-radius: 50%;
         object-fit:scale-down; 
-        border: 4px solid rgba(255, 71, 87, 0.8); /* Subtle border matching particles */
+        border: 4px solid rgba(255, 71, 87, 0.8);
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         animation: float 3s ease-in-out infinite;
     }
 
     #intro-text h1 {
-        font-size: 1.8rem; /* Adjust intro heading size */
+        font-size: 1.8rem;
     }
 
     #intro-text p {

@@ -67,15 +67,15 @@
 
 @media (max-width: 768px) {
     .project-image {
-        width: 100%; /* Make the image take the full width of the container */
-        height: auto; /* Maintain aspect ratio */
-        margin: 0 auto; /* Center the image */
-        border-radius: 8px; /* Optional: Keep the rounded corners */
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        border-radius: 8px;
     }
 
     .project-content {
-        padding: 10px; /* Reduce padding to save space */
-        font-size: 1rem; /* Adjust text size for readability */
-        line-height: 1.6; /* Keep line spacing comfortable */
+        padding: 10px;
+        font-size: 1rem;
+        line-height: 1.6;
     }
 }
