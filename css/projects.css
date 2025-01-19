@@ -85,3 +85,33 @@
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(255, 71, 87, 0.5);
 }
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr; /* Display one column per row */
+        gap: 20px; /* Add consistent spacing between rows */
+        padding: 10px; /* Adjust padding for better appearance */
+    }
+
+    .project-card {
+        width: 100%; /* Allow the tile to span the full width of the screen */
+        margin: 0 auto; /* Center-align the tile */
+        box-sizing: border-box; /* Include padding and border in width calculation */
+    }
+
+    .project-card img {
+        width: 100%; /* Ensure images fit within the card */
+        height: auto; /* Maintain the aspect ratio */
+        border-radius: 8px; /* Optional: Rounded corners for images */
+    }
+
+    .project-card h3 {
+        font-size: 1.5rem; /* Adjust heading size for mobile */
+        text-align: center; /* Center-align heading */
+    }
+
+    .project-card p {
+        font-size: 1rem; /* Adjust text size for readability */
+        text-align: center; /* Center-align text */
+    }
+}
