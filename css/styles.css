@@ -434,52 +434,65 @@ ul {
 
 /* Responsive Design for Mobile (styles.css) */
 @media (max-width: 768px) {
+    #particle-container {
+        display: none; /* Hide the particles on smaller screens */
+    }
+
     header nav {
-        flex-direction: column;
-        align-items: flex-start;
         display: none; /* Initially hidden */
-        position: absolute;
-        top: 60px; /* Adjust below the header */
-        right: 0;
-        background: rgba(18, 18, 18, 0.9); /* Background for the dropdown */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: fixed; /* Fixed to cover the whole screen */
+        top: 0;
+        left: 0;
         width: 100%;
-        padding: 10px 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        height: 100%; /* Full height */
+        background: rgba(18, 18, 18, 0.95); /* Slightly transparent dark background */
         z-index: 1000;
+        padding: 20px;
     }
 
     header nav.active {
-        display: flex;
+        display: flex; /* Show the menu when toggled */
     }
 
     header nav a {
-        margin: 10px 0;
-        font-size: 1.2rem;
+        margin: 20px 0; /* Space out the menu links */
+        font-size: 1.5rem; /* Larger font size for visibility */
+        color: #ff4757;
+        text-transform: uppercase;
+        font-weight: bold;
+        transition: color 0.3s ease;
     }
 
-    /* Hamburger Icon */
+    header nav a:hover {
+        color: #ff6b81;
+    }
+
+    /* Hamburger icon adjustments */
     .hamburger {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        width: 25px;
-        height: 20px;
+        width: 30px;
+        height: 25px;
         cursor: pointer;
-        position: absolute;
-        top: 15px;
+        position: fixed;
+        top: 20px;
         right: 20px;
         z-index: 1100;
     }
 
     .hamburger div {
         background: #ff4757;
-        height: 3px;
+        height: 4px;
         border-radius: 2px;
-        transition: transform 0.3s ease;
+        transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
     .hamburger.active div:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
+        transform: translateY(9px) rotate(45deg);
     }
 
     .hamburger.active div:nth-child(2) {
@@ -487,7 +500,7 @@ ul {
     }
 
     .hamburger.active div:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
+        transform: translateY(-9px) rotate(-45deg);
     }
 
     /* Content Wrapper */
