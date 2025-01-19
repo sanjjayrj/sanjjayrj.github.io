@@ -431,3 +431,90 @@ p {
 ul {
     margin-bottom: 20px;
 }
+
+
+
+
+/* Responsive Design for Mobile (styles.css) */
+@media (max-width: 768px) {
+    /* Navigation Bar */
+    header nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    header nav a {
+        margin: 5px 0; /* Add spacing between links */
+        font-size: 1rem; /* Adjust font size */
+    }
+
+    /* Content Wrapper */
+    .content {
+        padding: 20px;
+    }
+
+    /* Section Headers */
+    section h2 {
+        font-size: 1.8rem; /* Reduce size for headings */
+    }
+
+    /* Grid Layouts */
+    .grid {
+        grid-template-columns: 1fr; /* Single column layout */
+    }
+
+    .card {
+        text-align: center; /* Center-align content */
+    }
+
+    /* Footer Social Icons */
+    footer .social-icons {
+        justify-content: center; /* Center-align social icons */
+        margin-top: 10px;
+    }
+
+    footer .social-icons a {
+        margin: 0 10px; /* Add spacing between icons */
+    }
+
+    /* Resume Navigation */
+    #resume-nav {
+        display: none; /* Hide right-side navigation on smaller screens */
+    }
+
+    /* Resume Content Adjustments */
+    #resume-container {
+        padding: 20px;
+        margin: 0 auto;
+    }
+
+    /* Contact Form */
+    form {
+        gap: 10px; /* Reduce gaps between input fields */
+    }
+
+    input, textarea {
+        font-size: 0.9rem; /* Smaller font sizes for inputs */
+    }
+
+    button {
+        font-size: 1rem; /* Ensure buttons remain touch-friendly */
+        padding: 10px;
+    }
+
+    /* Profile Image (on index page) */
+    #profile-pic {
+        width: 150px; /* Adjust size */
+        height: 150px;
+    }
+
+    #intro-text h1 {
+        font-size: 1.8rem; /* Adjust intro heading size */
+    }
+
+    #intro-text p {
+        font-size: 1rem;
+    }
+}
