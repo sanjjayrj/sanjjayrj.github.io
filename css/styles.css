@@ -432,22 +432,62 @@ ul {
     margin-bottom: 20px;
 }
 
-
-
-
 /* Responsive Design for Mobile (styles.css) */
 @media (max-width: 768px) {
-    /* Navigation Bar */
     header nav {
-        display: flex;
         flex-direction: column;
-        align-items: center;
-        padding: 10px 0;
+        align-items: flex-start;
+        display: none; /* Initially hidden */
+        position: absolute;
+        top: 60px; /* Adjust below the header */
+        right: 0;
+        background: rgba(18, 18, 18, 0.9); /* Background for the dropdown */
+        width: 100%;
+        padding: 10px 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+    }
+
+    header nav.active {
+        display: flex;
     }
 
     header nav a {
-        margin: 5px 0; /* Add spacing between links */
-        font-size: 1rem; /* Adjust font size */
+        margin: 10px 0;
+        font-size: 1.2rem;
+    }
+
+    /* Hamburger Icon */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 25px;
+        height: 20px;
+        cursor: pointer;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        z-index: 1100;
+    }
+
+    .hamburger div {
+        background: #ff4757;
+        height: 3px;
+        border-radius: 2px;
+        transition: transform 0.3s ease;
+    }
+
+    .hamburger.active div:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active div:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active div:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
     }
 
     /* Content Wrapper */
