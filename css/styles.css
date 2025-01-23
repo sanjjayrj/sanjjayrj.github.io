@@ -388,6 +388,23 @@ section h2 {
     line-height: 1.6;
 }
 
+#certifications ul li a {
+    margin-left: 8px;
+    color: #ff4757;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+#certifications ul li a:hover {
+    color: #ff6b81;
+}
+
+#certifications ul li a i {
+    font-size: 0.85rem; /* Slightly smaller for subtlety */
+    vertical-align: middle;
+}
+
 #extras {
     padding: 40px 20px;
     color: white;
