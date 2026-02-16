@@ -173,25 +173,6 @@
   z-index: 0;
 }
 
-/* Dashed orbit ring */
-.about-image::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  border: 1px dashed var(--border);
-  z-index: 0;
-  animation: spin-slow 30s linear infinite;
-}
-
-@keyframes spin-slow {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
-}
 
 .about-facts {
   margin-top: 2rem;
@@ -685,7 +666,6 @@
     order: -1;
   }
 
-  .about-image::after,
   .about-image::before {
     display: none;
   }
