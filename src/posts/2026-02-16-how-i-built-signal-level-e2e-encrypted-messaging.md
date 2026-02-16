@@ -7,14 +7,14 @@ tags: []
   # Building Signal-Level Encryption Into a Consumer App: A Technical Deep Dive                                                                                                                            
                                                                                                                                                                                                              
   *How I implemented X25519 + AES-256-GCM end-to-end encrypted messaging with
-  forward secrecy, multi-device support, and monthly-partitioned storage—from
+  forward secrecy, multi-device support, and monthly-partitioned storage from
   scratch.*
 
   ---
 
   ## Why I Built This
 
-  Most consumer apps treat DMs as an afterthought—plaintext rows in a database
+  Most consumer apps treat DMs as an afterthought: plaintext rows in a database
   that any backend engineer (or breach) can read. I wanted to prove that
   production-grade E2E encryption isn't reserved for Signal or WhatsApp. It can
   be built by a solo engineer on a standard stack (Swift, FastAPI, Supabase,
@@ -108,7 +108,7 @@ tags: []
   ```
   The Keychain tag is scoped per-user so multiple accounts on the same device
   don't collide. I explicitly disable iCloud Keychain sync
-  (`kSecAttrSynchronizable: false`)—the whole point is that private keys are
+  (`kSecAttrSynchronizable: false`), the whole point is that private keys are
   device-bound.
 
   ### Message Encryption (V3 Protocol)
@@ -208,7 +208,7 @@ tags: []
 
   This meant that if you scrolled up in a conversation, your own messages showed
   "[Encrypted message]" instead of the actual text. I papered over it with a
-  local `sentMessageCache` dictionary, but that was session-scoped—closing
+  local `sentMessageCache` dictionary, but that was session-scoped: closing
   the app meant losing all your sent message previews.
 
   **V2 vs V3 comparison:**
@@ -227,7 +227,7 @@ tags: []
 
   **Migration:** The client auto-detects the version from the `"v"` field in
   the JSON. V2 messages still decrypt via the legacy path. All new messages
-  use V3. No migration script needed—the protocol is self-describing.
+  use V3. No migration script needed as the protocol is self-describing.
 
   ```swift
   // Simplified detection logic
@@ -278,7 +278,7 @@ tags: []
   │                                                                │
   │  SECURITY:                                                     │
   │  ┌──────────────────────────────────────────────────────────┐  │
-  │  │ • Server stores encrypted blob—cannot decrypt without PIN │  │
+  │  │ • Server stores encrypted blob-cannot decrypt without PIN │  │
   │  │ • 100k PBKDF2 iterations → ~0.3s per guess on iPhone      │  │
   │  │ • Rate limit: 5 restore attempts per 5 minutes            │  │
   │  │ • All attempts logged in key_restore_attempts table       │  │
@@ -288,7 +288,7 @@ tags: []
 ```
 
   100,000 PBKDF2 iterations was a deliberate choice. On a modern iPhone, this
-  takes about 300ms—imperceptible to the user, but makes brute-forcing a 6-digit
+  takes about 300ms-imperceptible to the user, but makes brute-forcing a 6-digit
   PIN take ~3.5 days of continuous computation per attempt batch, on top of the
   server-side rate limit.
 
@@ -335,11 +335,10 @@ tags: []
   └──────────────────────────────────────────────────────────────┘
   ```
   The trickiest edge case was iOS occasionally clearing the Keychain after app
-  updates. The user didn't switch devices—the OS just nuked their keys. I handle
+  updates. The user didn't switch devices-the OS just nuked their keys. I handle
   this by checking if the server has keys but no backup exists: in that case, I
   auto-generate new keys and log a warning. The user loses old message history,
-  but messaging isn't blocked. This was a pragmatic tradeoff—blocking the user
-  entirely would have been worse UX.
+  but messaging isn't blocked. This was a pragmatic tradeoff, i.e., blocking the user entirely would have been worse UX.
 
   ---
 
@@ -374,7 +373,7 @@ tags: []
 
   PostgreSQL requires the partition key (`created_at`) in the primary key of
   partitioned tables. That means my PK is `(id, created_at)`, not just `(id)`.
-  And foreign keys can only reference columns with unique constraints—which
+  And foreign keys can only reference columns with unique constraints-which
   partitioned tables can only have if they include the partition key.
 
   **Result:** No FK from `dm_message_reactions.message_id` →
@@ -382,7 +381,7 @@ tags: []
 
   **My solution:**
 
-  1. **Application-layer validation** before every insert—verify the message
+  1. **Application-layer validation** before every insert it verifies the message
      exists before adding a reaction.
   2. **Store `message_created_at`** alongside `message_id` in the reactions
      table, so PostgreSQL can prune to the correct partition during lookups.
@@ -502,11 +501,11 @@ tags: []
   Reversing the order silently drops all events.
 
   ```swift
-  // BROKEN — stream never receives events
+  // BROKEN - stream never receives events
   await channel.subscribe()
   let stream = channel.broadcastStream(event: "INSERT")
 
-  // CORRECT — create stream first, then subscribe
+  // CORRECT - create stream first, then subscribe
   let stream = channel.broadcastStream(event: "INSERT")
   await channel.subscribe()
   await Task.yield()  // Required per Supabase GitHub issue #390
@@ -619,10 +618,10 @@ tags: []
 
   My first implementation tried to be clever: fetch the N most recent messages
   across all conversations in one query, then group by conversation. But this
-  had a critical bug—if one conversation was very active, all N messages could
+  had a critical bug-if one conversation was very active, all N messages could
   come from that single conversation, leaving the rest with no preview.
 ```
-  # BUGGY — all messages might come from one active conversation
+  # BUGGY - all messages might come from one active conversation
   messages = (
       supabase.table("dm_messages")
       .select("*")
@@ -727,7 +726,7 @@ tags: []
 
   iOS occasionally clears Keychain entries after app updates. The user's private
   key just vanishes. I detect this by checking if the server has keys but no PIN
-  backup exists—if so, I auto-generate new keys and log a warning. Old messages
+  backup exists-if so, I auto-generate new keys and log a warning. Old messages
   become unreadable, but the user isn't blocked from sending new ones.
 
   ---
