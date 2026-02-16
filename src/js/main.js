@@ -66,6 +66,15 @@ document.querySelectorAll('.nav-links a').forEach(function(link) {
   });
 });
 
+// About image tap toggle (mobile)
+(function() {
+  var img = document.querySelector('.about-image img');
+  if (!img) return;
+  img.addEventListener('click', function() {
+    img.classList.toggle('color-active');
+  });
+})();
+
 // Scroll reveal (Intersection Observer)
 (function() {
   var observer = new IntersectionObserver(function(entries) {

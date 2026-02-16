@@ -611,8 +611,8 @@
     display: none;
   }
 
-  .about-image img {
-    filter: none;
+  .about-image img.color-active {
+    filter: grayscale(0%) contrast(1);
   }
 
   .about-facts {
