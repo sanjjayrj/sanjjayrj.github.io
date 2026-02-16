@@ -1,0 +1,42 @@
+---
+layout: base.njk
+title: Skills & Certifications
+description: Technical skills and professional certifications.
+extraCss:
+  - /css/sections.css
+---
+
+<div class="experience-detail">
+  <div class="container">
+    <a href="/#experience" class="post-back">Back to Home</a>
+
+    <h1 class="section-title" style="margin-top: 24px;">skills</h1>
+
+    <div class="skills-section">
+      {% for group in skills.groups %}
+      <div class="skills-group">
+        <h4>{{ group.category }}</h4>
+        <div class="skills-list">
+          {% for skill in group.items %}
+          <span class="tag">{{ skill }}</span>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <h2 class="section-title" style="margin-top: 60px;">certifications</h2>
+
+    <div class="certifications-list">
+      {% for cert in certifications.items %}
+      <div class="certification-card">
+        <h3>{{ cert.name }}</h3>
+        <p>{{ cert.issuer }} &middot; {{ cert.year }}</p>
+        {% if cert.url %}
+        <a href="{{ cert.url }}" target="_blank" rel="noopener" class="card-link">View credential</a>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

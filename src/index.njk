@@ -41,6 +41,7 @@ description: Data Scientist, AI Engineer, and Builder. Currently building ThisJu
           <div class="about-fact">{{ fact }}</div>
           {% endfor %}
         </div>
+        <a href="/files/Sanjay_Raju_Resume.pdf" target="_blank" rel="noopener" class="btn btn-resume"><i class="fas fa-download"></i> Resume</a>
       </div>
       <div class="about-image reveal-right">
         <img src="/images/about_cutout.png" alt="{{ site.name }}" loading="lazy">
@@ -81,33 +82,8 @@ description: Data Scientist, AI Engineer, and Builder. Currently building ThisJu
       {% endfor %}
     </div>
 
-    {# Skills #}
-    <div class="skills-section reveal">
-      <h3 class="section-title" style="margin-top: 60px; font-size: 1.25rem;">skills</h3>
-      {% for group in skills.groups %}
-      <div class="skills-group">
-        <h4>{{ group.category }}</h4>
-        <div class="skills-list">
-          {% for skill in group.items %}
-          <span class="tag">{{ skill }}</span>
-          {% endfor %}
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-
-    {# Certifications #}
-    <div class="skills-section reveal">
-      <h3 class="section-title" style="margin-top: 40px; font-size: 1.25rem;">certifications</h3>
-      <div class="skills-list" style="flex-direction: column; gap: 8px;">
-        {% for cert in certifications.items %}
-        <span class="tag" style="width: fit-content;">
-          {% if cert.url %}<a href="{{ cert.url }}" target="_blank" rel="noopener" style="color: inherit;">{% endif %}
-          {{ cert.name }} — {{ cert.issuer }} ({{ cert.year }})
-          {% if cert.url %} <i class="fas fa-external-link-alt" style="font-size: 0.6rem; margin-left: 4px;"></i></a>{% endif %}
-        </span>
-        {% endfor %}
-      </div>
+    <div class="experience-section-footer reveal">
+      <a href="/experience/" class="btn">Skills & Certifications</a>
     </div>
   </div>
 </section>
