@@ -837,6 +837,6 @@ tags: []
   ---
 
   *This is the first in a series of technical deep dives from building a
-  full-stack personalized news platform. Next up: how I built a political
+  full-stack personalized news platform. I realize this was a bit of a technical blog, I'd be happy to write another one in simpler terms. Let me know what you think about this below. A blog I'm working on next: how I built a political
   compass-based recommendation engine with LightGBM, MMR diversity, and
   controlled exploration.*
