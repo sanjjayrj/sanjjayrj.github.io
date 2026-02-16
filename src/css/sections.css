@@ -611,6 +611,10 @@
     display: none;
   }
 
+  .about-image img {
+    filter: none;
+  }
+
   .about-facts {
     grid-template-columns: 1fr;
   }
