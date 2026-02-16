@@ -2,7 +2,7 @@
 title: "ThisJustIn"
 subtitle: "Gen-AI Powered Personalized Short-Form Video News"
 tags: ["FastAPI", "AWS", "SwiftUI", "Docker", "GenAI", "Signal Protocol", "PostgreSQL", "OpenSearch"]
-image: "/images/about_1.png"
+image: null
 githubUrl: null
 ---
 
