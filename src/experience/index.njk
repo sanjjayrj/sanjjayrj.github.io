@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: Skills & Certifications
-description: Technical skills and professional certifications.
+title: Experience
+description: Professional experience, education, skills, and certifications.
 extraCss:
   - /css/sections.css
 ---
@@ -10,7 +10,35 @@ extraCss:
   <div class="container">
     <a href="/#experience" class="post-back">Back to Home</a>
 
-    <h1 class="section-title" style="margin-top: 24px;">skills</h1>
+    <h1 class="section-title" style="margin-top: 24px;">experience</h1>
+
+    <div class="timeline">
+      {% for job in experience.jobs %}
+      <div class="timeline-item">
+        <h3 class="timeline-role">{{ job.role }}</h3>
+        <p class="timeline-company">{{ job.company }} &middot; {{ job.period }}</p>
+        <ul class="timeline-desc">
+          {% for bullet in job.bullets %}
+          <li>{{ bullet }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+
+    <h2 class="section-title" style="margin-top: 60px;">education</h2>
+
+    <div class="education-grid">
+      {% for edu in education.entries %}
+      <div class="education-card">
+        <h4>{{ edu.degree }}</h4>
+        <p class="institution">{{ edu.institution }}</p>
+        <p class="details">{{ edu.period }}{% if edu.gpa %} &middot; GPA: {{ edu.gpa }}{% endif %}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <h2 class="section-title" style="margin-top: 60px;">skills</h2>
 
     <div class="skills-section">
       {% for group in skills.groups %}
