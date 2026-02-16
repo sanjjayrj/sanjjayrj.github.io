@@ -69,6 +69,13 @@
   background: var(--text-primary);
 }
 
+/* Nav actions (theme toggle + hamburger) */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 /* Theme toggle */
 .theme-toggle {
   background: none;
