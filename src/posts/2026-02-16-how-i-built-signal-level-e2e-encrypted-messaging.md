@@ -28,7 +28,7 @@ tags: []
   ---
 
   ## Architecture Overview
-
+```
   ┌──────────────────────────────────────────────────────────────────┐
   │                        CLIENT (iOS)                              │
   │                                                                  │
@@ -77,7 +77,7 @@ tags: []
   │  partitions     │  │                   │  │                   │
   └─────────────────┘  └───────────────────┘  └───────────────────┘
 
-  ```markdown
+  ```
   ---
 
   ## The Cryptography
@@ -86,7 +86,7 @@ tags: []
 
   Every device generates its own X25519 key pair on first launch. The private
   key never leaves the device.
-
+```
   ┌─────────────────────────────────────────────────────┐
   │              KEY GENERATION (per device)             │
   │                                                     │
@@ -105,7 +105,7 @@ tags: []
   │     └─ POST /dm/keys { public_key, device_id }      │
   └─────────────────────────────────────────────────────┘
 
-  ```markdown
+  ```
   The Keychain tag is scoped per-user so multiple accounts on the same device
   don't collide. I explicitly disable iCloud Keychain sync
   (`kSecAttrSynchronizable: false`)—the whole point is that private keys are
@@ -115,7 +115,7 @@ tags: []
 
   Each message uses an ephemeral key pair, providing **forward secrecy**: even
   if a device's long-term key is compromised, past messages remain secure.
-
+```
   ┌──────────────────────────────────────────────────────────────┐
   │                V3 ENCRYPTION FLOW (Dual-Key)                 │
   │                                                              │
@@ -167,11 +167,11 @@ tags: []
   │  └──────────────────────────────────────────────────────┘    │
   └──────────────────────────────────────────────────────────────┘
 
-  ```markdown
+  ```
   ### Decryption
 
   The recipient's client tries two paths:
-
+```
   ┌────────────────────────────────────────────────┐
   │             V3 DECRYPTION FLOW                 │
   │                                                │
@@ -198,7 +198,7 @@ tags: []
   │  Both fail? → "[Unable to decrypt]"            │
   └────────────────────────────────────────────────┘
 
-  ```markdown
+  ```
   ---
 
   ## The V2 → V3 Protocol Evolution (Roadblock #1)
@@ -212,7 +212,7 @@ tags: []
   the app meant losing all your sent message previews.
 
   **V2 vs V3 comparison:**
-
+```
   | Aspect               | V2 (Single-Key)           | V3 (Dual-Key)                  |
   |----------------------|---------------------------|--------------------------------|
   | Who can decrypt      | Recipient only             | Both sender and recipient      |
