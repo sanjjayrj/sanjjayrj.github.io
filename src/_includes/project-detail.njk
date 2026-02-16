@@ -1,0 +1,62 @@
+---
+layout: base.njk
+extraCss:
+  - /css/project.css
+---
+<div class="project-detail">
+  <div class="container">
+    <a href="/#projects" class="project-back">Back to Projects</a>
+
+    <header class="project-detail-header">
+      <h1>{{ title }}</h1>
+      {% if subtitle %}
+      <p class="subtitle">{{ subtitle }}</p>
+      {% endif %}
+      {% if tags %}
+      <div class="tags">
+        {% for tag in tags %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+      <div class="links">
+        {% if githubUrl %}
+        <a href="{{ githubUrl }}" target="_blank" rel="noopener" class="btn"><i class="fab fa-github"></i> GitHub</a>
+        {% endif %}
+        {% if paperUrl %}
+        <a href="{{ paperUrl }}" target="_blank" rel="noopener" class="btn"><i class="fas fa-file-alt"></i> Paper</a>
+        {% endif %}
+        {% if demoUrl %}
+        <a href="{{ demoUrl }}" target="_blank" rel="noopener" class="btn"><i class="fas fa-external-link-alt"></i> Demo</a>
+        {% endif %}
+      </div>
+    </header>
+
+    {% if image %}
+    <img src="{{ image }}" alt="{{ title }}" class="project-detail-image" loading="lazy">
+    {% endif %}
+
+    <div class="project-detail-body">
+      {{ content | safe }}
+    </div>
+
+    <div class="comments-section">
+      <h2 class="section-title">comments</h2>
+      <script src="https://giscus.app/client.js"
+        data-repo="sanjjayrj/sanjjayrj.github.io"
+        data-repo-id=""
+        data-category="Comments"
+        data-category-id=""
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="dark_dimmed"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+      </script>
+    </div>
+  </div>
+</div>

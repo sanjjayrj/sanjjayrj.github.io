@@ -1,0 +1,32 @@
+---
+layout: base.njk
+title: Blog
+description: Thoughts on AI, engineering, and building products.
+extraCss:
+  - /css/blog.css
+---
+
+<div class="blog-listing">
+  <div class="container">
+    <h1 class="section-title">blog</h1>
+    <p style="color: var(--text-secondary); margin-bottom: 48px;">Thoughts on AI, engineering, and building products.</p>
+
+    <div class="blog-listing-grid">
+      {% for post in collections.posts %}
+      <article class="blog-listing-card">
+        <time datetime="{{ post.date | dateFormat }}">{{ post.date | dateFormat }}</time>
+        <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+        <p>{{ post.data.excerpt }}</p>
+        {% if post.data.tags %}
+        <div class="tags">
+          {% for tag in post.data.tags %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+        <a href="{{ post.url }}" class="read-more">Read more</a>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</div>

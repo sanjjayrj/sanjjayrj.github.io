@@ -1,0 +1,47 @@
+---
+layout: base.njk
+extraCss:
+  - /css/blog.css
+---
+<div class="post-detail">
+  <div class="container">
+    <a href="/blog/" class="post-back">Back to Blog</a>
+
+    <header class="post-header">
+      <time datetime="{{ date | dateFormat }}">{{ date | dateFormat }}</time>
+      <h1>{{ title }}</h1>
+      {% if tags %}
+      <div class="tags">
+        {% for tag in tags %}
+        {% if tag != "posts" %}
+        <span class="tag">{{ tag }}</span>
+        {% endif %}
+        {% endfor %}
+      </div>
+      {% endif %}
+    </header>
+
+    <div class="post-body">
+      {{ content | safe }}
+    </div>
+
+    <div class="comments-section">
+      <h2 class="section-title">comments</h2>
+      <script src="https://giscus.app/client.js"
+        data-repo="sanjjayrj/sanjjayrj.github.io"
+        data-repo-id=""
+        data-category="Comments"
+        data-category-id=""
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="dark_dimmed"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+      </script>
+    </div>
+  </div>
+</div>

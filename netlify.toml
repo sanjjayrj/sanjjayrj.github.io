@@ -1,0 +1,41 @@
+[build]
+  command = "npx eleventy"
+  publish = "_site"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/about.html"
+  to = "/#about"
+  status = 301
+
+[[redirects]]
+  from = "/resume.html"
+  to = "/#experience"
+  status = 301
+
+[[redirects]]
+  from = "/project.html"
+  to = "/#projects"
+  status = 301
+
+[[redirects]]
+  from = "/blog.html"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/posts/blog1.html"
+  to = "/blog/building-a-smart-job-recommendation-system/"
+  status = 301
+
+[[redirects]]
+  from = "/posts/post1.html"
+  to = "/projects/crater-detection/"
+  status = 301
+
+[[redirects]]
+  from = "/posts/post2.html"
+  to = "/projects/job-aggregator/"
+  status = 301

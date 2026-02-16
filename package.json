@@ -1,0 +1,27 @@
+{
+  "name": "sanjjayrj.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx eleventy --serve",
+    "build": "npx eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanjjayrj/sanjjayrj.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sanjjayrj/sanjjayrj.github.io/issues"
+  },
+  "homepage": "https://github.com/sanjjayrj/sanjjayrj.github.io#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "markdown-it": "^14.1.1",
+    "markdown-it-anchor": "^9.2.0"
+  }
+}

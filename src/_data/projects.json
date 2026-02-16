@@ -1,0 +1,80 @@
+[
+  {
+    "title": "ThisJustIn",
+    "subtitle": "Gen-AI Powered Personalized Short-Form Video News",
+    "description": "A personalized news platform with custom political alignment algorithm, E2E encrypted messaging, and hybrid AI-powered search — built for iOS with a FastAPI backend on AWS.",
+    "tags": ["FastAPI", "AWS", "SwiftUI", "Docker", "GenAI", "Signal Protocol", "PostgreSQL", "OpenSearch"],
+    "image": "/images/about_1.png",
+    "detailUrl": "/projects/thisjustin/",
+    "githubUrl": null,
+    "featured": true,
+    "highlights": [
+      "Custom political alignment algorithm for content personalization",
+      "E2E encrypted messaging with Signal Protocol patterns",
+      "Hybrid search: BM25 + pgvector + OpenSearch + Bedrock embeddings",
+      "Multi-role Docker containers on AWS ECS/Fargate",
+      "CI/CD with GitHub Actions and AWS ECR",
+      "SwiftUI/UIKit iOS app with Supabase RealTime"
+    ]
+  },
+  {
+    "title": "Job Aggregator AI Agent",
+    "subtitle": "Conversational Job Recommendation System",
+    "description": "An intelligent system that parses resumes, scrapes 1000+ job listings, and matches them using AI embeddings with a conversational interface.",
+    "tags": ["Python", "OpenAI", "Flask", "NLTK", "MongoDB"],
+    "image": "/images/job.png",
+    "detailUrl": "/projects/job-aggregator/",
+    "githubUrl": "https://github.com/sanjjayrj/Job-Aggregator-Conversational-Gen-AI-Agent",
+    "featured": false
+  },
+  {
+    "title": "Lunar Crater Detection",
+    "subtitle": "Deep Learning for Lunar Surface Analysis",
+    "description": "Deep learning model detecting craters on the lunar surface from Chandrayaan-2 satellite imagery. Published in the Journal of the Indian Society of Remote Sensing.",
+    "tags": ["Python", "Keras", "OpenCV", "YOLOv5", "R-CNN"],
+    "image": "/images/crater.jpg",
+    "detailUrl": "/projects/crater-detection/",
+    "githubUrl": "https://github.com/sanjjayrj",
+    "featured": false
+  },
+  {
+    "title": "Image Captioning System",
+    "subtitle": "Multi-Modal Recognition & Caption Generation",
+    "description": "Multi-model system using LSTM and Feed Forward Neural Networks on the Flickr30k dataset, achieving 78% accuracy in image recognition and captioning.",
+    "tags": ["Python", "LSTM", "Deep Learning", "Flickr30k"],
+    "image": "/images/img_caption.png",
+    "detailUrl": "https://github.com/sanjjayrj/Image-Captioning",
+    "githubUrl": "https://github.com/sanjjayrj/Image-Captioning",
+    "featured": false
+  },
+  {
+    "title": "Mental Health in Tech Analysis",
+    "subtitle": "Data Analysis & Bayesian Methods",
+    "description": "Deep analysis of survey data correlating workplace conditions and mental health in tech using statistical and Bayesian methods.",
+    "tags": ["Python", "Statistics", "Bayesian", "Data Analysis"],
+    "image": "/images/Mental_Health_Technology.jpg",
+    "detailUrl": null,
+    "githubUrl": null,
+    "featured": false
+  },
+  {
+    "title": "ML Video Processing Pipeline",
+    "subtitle": "C++ Multi-Threaded ML Pipeline with CUDA",
+    "description": "Large-scale video processing pipeline using C++ for multiple ML models with CUDA acceleration, built with a team of 30 at Tata Elxsi.",
+    "tags": ["C++", "CUDA", "Computer Vision", "Multi-threading"],
+    "image": "/images/video_recog.png",
+    "detailUrl": null,
+    "githubUrl": null,
+    "featured": false
+  },
+  {
+    "title": "Driver Drowsiness Detection",
+    "subtitle": "Real-Time Driver Monitoring System",
+    "description": "Real-time system using OpenCV for facial landmarks and a CNN model to detect drowsiness with early yawning warnings.",
+    "tags": ["Python", "OpenCV", "CNN", "Real-time"],
+    "image": "/images/driver_drowsiness.jpg",
+    "detailUrl": null,
+    "githubUrl": null,
+    "featured": false
+  }
+]
