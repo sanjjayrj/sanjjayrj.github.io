@@ -1,0 +1,16 @@
+{
+  "groups": [
+    {
+      "category": "Languages",
+      "items": ["Python", "C++", "Swift", "SQL", "JavaScript", "R", "Java", "Scala", "HTML/CSS"]
+    },
+    {
+      "category": "AI & Data",
+      "items": ["Machine Learning", "Deep Learning", "Computer Vision", "NLP", "CUDA", "PyTorch", "TensorFlow", "GenAI", "LLMs", "Embeddings", "Data Visualization", "Time Series"]
+    },
+    {
+      "category": "Infrastructure & Tools",
+      "items": ["AWS (ECS, Fargate, Bedrock, CloudFront)", "Docker", "FastAPI", "PostgreSQL", "OpenSearch", "Supabase", "Git", "GitHub Actions", "Tableau", "Jupyter"]
+    }
+  ]
+}

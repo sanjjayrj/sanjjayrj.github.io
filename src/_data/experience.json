@@ -1,0 +1,37 @@
+{
+  "jobs": [
+    {
+      "role": "Founder & Full-Stack Engineer",
+      "company": "ThisJustIn",
+      "period": "2025 - Present",
+      "bullets": [
+        "Designed and built a Gen-AI powered personalized news platform end-to-end",
+        "FastAPI backend with multi-role Docker containers on AWS ECS/Fargate, ALB, CloudFront CDN",
+        "Implemented E2E encrypted messaging using Signal Protocol patterns (X25519, AES-256-GCM)",
+        "Built hybrid search: PostgreSQL BM25 + pgvector HNSW + AWS Bedrock Titan embeddings + OpenSearch",
+        "Developed iOS app in SwiftUI/UIKit with Supabase RealTime for instant messaging",
+        "CI/CD pipelines with GitHub Actions and AWS ECR"
+      ]
+    },
+    {
+      "role": "AI Engineer Intern",
+      "company": "Tata Elxsi",
+      "period": "Jan 2023 - Jul 2023",
+      "bullets": [
+        "Worked with a team of 30 on a multimillion-dollar video processing and interpretation project",
+        "Created a unified C++ pipeline for processing multiple ML models",
+        "Enhanced performance by implementing CUDA acceleration",
+        "Built multithreaded architecture for simultaneous input processing"
+      ]
+    },
+    {
+      "role": "Full Stack Developer",
+      "company": "Al Qayam Electrical Equipments W.L.L.",
+      "period": "2024",
+      "bullets": [
+        "Built website for a local business to market internationally in the Middle East",
+        "Designed pipelines to direct product enquiries and orders to company software"
+      ]
+    }
+  ]
+}

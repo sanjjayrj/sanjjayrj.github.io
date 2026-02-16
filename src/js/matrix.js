@@ -25,11 +25,15 @@
     drops[i] = Math.random() * -100;
   }
 
+  function isLight() {
+    return document.documentElement.getAttribute('data-theme') === 'light';
+  }
+
   function draw() {
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.06)';
+    var light = isLight();
+    ctx.fillStyle = light ? 'rgba(255, 255, 255, 0.06)' : 'rgba(0, 0, 0, 0.06)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.12)';
     ctx.font = fontSize + 'px JetBrains Mono, monospace';
 
     for (var i = 0; i < drops.length; i++) {
@@ -37,9 +41,10 @@
       var x = i * fontSize;
       var y = drops[i] * fontSize;
 
-      // Vary opacity for depth effect
       var opacity = 0.03 + Math.random() * 0.12;
-      ctx.fillStyle = 'rgba(255, 255, 255, ' + opacity + ')';
+      ctx.fillStyle = light
+        ? 'rgba(0, 0, 0, ' + opacity + ')'
+        : 'rgba(255, 255, 255, ' + opacity + ')';
       ctx.fillText(text, x, y);
 
       if (y > canvas.height && Math.random() > 0.985) {

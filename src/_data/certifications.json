@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "name": "Fundamentals of Deep Learning",
+      "issuer": "NVIDIA DLI",
+      "year": "2021",
+      "url": "https://learn.nvidia.com/certificates?id=09909e51d409488fb1da85211c16a489"
+    },
+    {
+      "name": "Intermediate Machine Learning",
+      "issuer": "Kaggle",
+      "year": "2021",
+      "url": "https://www.kaggle.com/learn/certification/sanjjayy/intermediate-machine-learning"
+    },
+    {
+      "name": "AI & Reinforcement Learning Workshop",
+      "issuer": "IIT Madras Shaastra",
+      "year": "2022",
+      "url": null
+    },
+    {
+      "name": "Introduction to Cybersecurity",
+      "issuer": "Cisco",
+      "year": "2021",
+      "url": "https://www.credly.com/badges/8bd30dbc-32a5-44ba-bbe4-ab2106483345"
+    },
+    {
+      "name": "The Complete React Fullstack Course",
+      "issuer": "Udemy",
+      "year": "2021",
+      "url": "https://udemy-certificate.s3.amazonaws.com/pdf/UC-d72713fa-1d41-480a-9a2d-a7eff179b7a5.pdf"
+    }
+  ]
+}

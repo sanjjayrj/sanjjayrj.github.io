@@ -1,0 +1,15 @@
+{
+  "entries": [
+    {
+      "degree": "Master's in Data Science",
+      "institution": "Stevens Institute of Technology",
+      "period": "Aug 2023 - May 2025"
+    },
+    {
+      "degree": "B.Tech in Artificial Intelligence",
+      "institution": "Amrita Vishwa Vidyapeetham",
+      "period": "2019 - 2023",
+      "gpa": "8.8/10.0"
+    }
+  ]
+}

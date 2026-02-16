@@ -9,16 +9,15 @@ description: Data Scientist, AI Engineer, and Builder. Currently building ThisJu
   <canvas class="hero-canvas" id="matrix-canvas"></canvas>
   <div class="container hero-content">
     <p class="hero-greeting mono">> sanjay.init()</p>
-    <h1 class="hero-name">Sanjay Raju<span class="cursor"></span></h1>
-    <p class="hero-title">Data Scientist &middot; AI Engineer &middot; Builder</p>
+    <h1 class="hero-name">{{ site.name }}<span class="cursor"></span></h1>
+    <p class="hero-title">{{ site.title }}</p>
     <p class="hero-description">
-      Building <strong style="color: var(--text-primary)">ThisJustIn</strong> — a Gen-AI powered
-      personalized short-form video news platform. Passionate about leveraging AI to solve real-world problems.
+      {{ site.description }}
     </p>
     <div class="hero-cta">
       <a href="#projects" class="btn btn-filled">View Work</a>
-      <a href="https://github.com/sanjjayrj" target="_blank" rel="noopener" class="btn"><i class="fab fa-github"></i> GitHub</a>
-      <a href="https://linkedin.com/in/sanjayraju5" target="_blank" rel="noopener" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="{{ site.github }}" target="_blank" rel="noopener" class="btn"><i class="fab fa-github"></i> GitHub</a>
+      <a href="{{ site.linkedin }}" target="_blank" rel="noopener" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
     </div>
   </div>
   <div class="hero-scroll">
@@ -34,24 +33,17 @@ description: Data Scientist, AI Engineer, and Builder. Currently building ThisJu
     <h2 class="section-title reveal">about</h2>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p>
-          I'm Sanjay Raju — a Data Science graduate from Stevens Institute of Technology with a B.Tech in Artificial Intelligence from Amrita Vishwa Vidyapeetham. I build things at the intersection of AI, infrastructure, and product.
-        </p>
-        <p>
-          Most recently, I designed and built <strong style="color: var(--text-primary)">ThisJustIn</strong> from the ground up — a Gen-AI powered personalized news platform with E2E encrypted messaging, hybrid search, and a custom political alignment algorithm. The backend runs on AWS ECS/Fargate with a FastAPI service architecture, and the iOS app is built in SwiftUI.
-        </p>
-        <p>
-          Before that, I worked as an AI Engineer Intern at Tata Elxsi, building CUDA-accelerated C++ pipelines for video processing ML models. My research on lunar crater detection using deep learning was published in the Journal of the Indian Society of Remote Sensing.
-        </p>
+        {% for paragraph in about.bio %}
+        <p>{{ paragraph | safe }}</p>
+        {% endfor %}
         <div class="about-facts">
-          <div class="about-fact">Space exploration enthusiast</div>
-          <div class="about-fact">90 WPM typist</div>
-          <div class="about-fact">Tea over coffee, always</div>
-          <div class="about-fact">RDR2 & Ghost of Tsushima</div>
+          {% for fact in about.facts %}
+          <div class="about-fact">{{ fact }}</div>
+          {% endfor %}
         </div>
       </div>
       <div class="about-image reveal-right">
-        <img src="/images/about_1.png" alt="Sanjay Raju" loading="lazy">
+        <img src="/images/about_1.png" alt="{{ site.name }}" loading="lazy">
       </div>
     </div>
   </div>
@@ -64,93 +56,57 @@ description: Data Scientist, AI Engineer, and Builder. Currently building ThisJu
     <h2 class="section-title reveal">experience</h2>
 
     <div class="timeline">
+      {% for job in experience.jobs %}
       <div class="timeline-item reveal">
-        <h3 class="timeline-role">Founder & Full-Stack Engineer</h3>
-        <p class="timeline-company">ThisJustIn &middot; 2025 - Present</p>
+        <h3 class="timeline-role">{{ job.role }}</h3>
+        <p class="timeline-company">{{ job.company }} &middot; {{ job.period }}</p>
         <ul class="timeline-desc">
-          <li>Designed and built a Gen-AI powered personalized news platform end-to-end</li>
-          <li>FastAPI backend with multi-role Docker containers on AWS ECS/Fargate, ALB, CloudFront CDN</li>
-          <li>Implemented E2E encrypted messaging using Signal Protocol patterns (X25519, AES-256-GCM)</li>
-          <li>Built hybrid search: PostgreSQL BM25 + pgvector HNSW + AWS Bedrock Titan embeddings + OpenSearch</li>
-          <li>Developed iOS app in SwiftUI/UIKit with Supabase RealTime for instant messaging</li>
-          <li>CI/CD pipelines with GitHub Actions and AWS ECR</li>
+          {% for bullet in job.bullets %}
+          <li>{{ bullet }}</li>
+          {% endfor %}
         </ul>
       </div>
-
-      <div class="timeline-item reveal">
-        <h3 class="timeline-role">AI Engineer Intern</h3>
-        <p class="timeline-company">Tata Elxsi &middot; Jan 2023 - Jul 2023</p>
-        <ul class="timeline-desc">
-          <li>Worked with a team of 30 on a multimillion-dollar video processing and interpretation project</li>
-          <li>Created a unified C++ pipeline for processing multiple ML models</li>
-          <li>Enhanced performance by implementing CUDA acceleration</li>
-          <li>Built multithreaded architecture for simultaneous input processing</li>
-        </ul>
-      </div>
-
-      <div class="timeline-item reveal">
-        <h3 class="timeline-role">Full Stack Developer</h3>
-        <p class="timeline-company">Al Qayam Electrical Equipments W.L.L. &middot; 2024</p>
-        <ul class="timeline-desc">
-          <li>Built website for a local business to market internationally in the Middle East</li>
-          <li>Designed pipelines to direct product enquiries and orders to company software</li>
-        </ul>
-      </div>
+      {% endfor %}
     </div>
 
     {# Education #}
     <h3 class="section-title reveal" style="margin-top: 60px; font-size: 1.25rem;">education</h3>
     <div class="education-grid stagger-children">
+      {% for edu in education.entries %}
       <div class="education-card reveal">
-        <h4>Master's in Data Science</h4>
-        <p class="institution">Stevens Institute of Technology</p>
-        <p class="details">Aug 2023 - May 2025</p>
+        <h4>{{ edu.degree }}</h4>
+        <p class="institution">{{ edu.institution }}</p>
+        <p class="details">{{ edu.period }}{% if edu.gpa %} &middot; GPA: {{ edu.gpa }}{% endif %}</p>
       </div>
-      <div class="education-card reveal">
-        <h4>B.Tech in Artificial Intelligence</h4>
-        <p class="institution">Amrita Vishwa Vidyapeetham</p>
-        <p class="details">2019 - 2023 &middot; GPA: 8.8/10.0</p>
-      </div>
+      {% endfor %}
     </div>
 
     {# Skills #}
     <div class="skills-section reveal">
       <h3 class="section-title" style="margin-top: 60px; font-size: 1.25rem;">skills</h3>
+      {% for group in skills.groups %}
       <div class="skills-group">
-        <h4>Languages</h4>
+        <h4>{{ group.category }}</h4>
         <div class="skills-list">
-          {% for skill in ["Python", "C++", "Swift", "SQL", "JavaScript", "R", "Java", "Scala", "HTML/CSS"] %}
+          {% for skill in group.items %}
           <span class="tag">{{ skill }}</span>
           {% endfor %}
         </div>
       </div>
-      <div class="skills-group">
-        <h4>AI & Data</h4>
-        <div class="skills-list">
-          {% for skill in ["Machine Learning", "Deep Learning", "Computer Vision", "NLP", "CUDA", "PyTorch", "TensorFlow", "GenAI", "LLMs", "Embeddings", "Data Visualization", "Time Series"] %}
-          <span class="tag">{{ skill }}</span>
-          {% endfor %}
-        </div>
-      </div>
-      <div class="skills-group">
-        <h4>Infrastructure & Tools</h4>
-        <div class="skills-list">
-          {% for skill in ["AWS (ECS, Fargate, Bedrock, CloudFront)", "Docker", "FastAPI", "PostgreSQL", "OpenSearch", "Supabase", "Git", "GitHub Actions", "Tableau", "Jupyter"] %}
-          <span class="tag">{{ skill }}</span>
-          {% endfor %}
-        </div>
-      </div>
+      {% endfor %}
     </div>
 
     {# Certifications #}
     <div class="skills-section reveal">
       <h3 class="section-title" style="margin-top: 40px; font-size: 1.25rem;">certifications</h3>
       <div class="skills-list" style="flex-direction: column; gap: 8px;">
-        <span class="tag" style="width: fit-content;">Fundamentals of Deep Learning — NVIDIA DLI (2021)</span>
-        <span class="tag" style="width: fit-content;">Intermediate Machine Learning — Kaggle (2021)</span>
-        <span class="tag" style="width: fit-content;">AI & Reinforcement Learning Workshop — IIT Madras Shaastra (2022)</span>
-        <span class="tag" style="width: fit-content;">Introduction to Cybersecurity — Cisco (2021)</span>
-        <span class="tag" style="width: fit-content;">The Complete React Fullstack Course — Udemy (2021)</span>
+        {% for cert in certifications.items %}
+        <span class="tag" style="width: fit-content;">
+          {% if cert.url %}<a href="{{ cert.url }}" target="_blank" rel="noopener" style="color: inherit;">{% endif %}
+          {{ cert.name }} — {{ cert.issuer }} ({{ cert.year }})
+          {% if cert.url %} <i class="fas fa-external-link-alt" style="font-size: 0.6rem; margin-left: 4px;"></i></a>{% endif %}
+        </span>
+        {% endfor %}
       </div>
     </div>
   </div>
@@ -162,8 +118,8 @@ description: Data Scientist, AI Engineer, and Builder. Currently building ThisJu
     <span class="section-label reveal">03</span>
     <h2 class="section-title reveal">projects</h2>
 
-    {# Featured Project: ThisJustIn #}
-    {% for project in projects %}
+    {# Featured Project #}
+    {% for project in projects.items %}
       {% if project.featured %}
       <div class="featured-project reveal">
         <span class="featured-label">Featured Project</span>
@@ -187,7 +143,7 @@ description: Data Scientist, AI Engineer, and Builder. Currently building ThisJu
 
     {# Other Projects #}
     <div class="projects-grid stagger-children">
-      {% for project in projects %}
+      {% for project in projects.items %}
         {% if not project.featured %}
         <div class="project-card reveal">
           <h3>{{ project.title }}</h3>

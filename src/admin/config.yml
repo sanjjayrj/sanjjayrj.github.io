@@ -32,3 +32,110 @@ collections:
       - { label: "Paper URL", name: "paperUrl", widget: "string", required: false }
       - { label: "Demo URL", name: "demoUrl", widget: "string", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "site"
+    label: "Site Settings"
+    files:
+      - name: "general"
+        label: "General Settings"
+        file: "src/_data/site.json"
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "GitHub", name: "github", widget: "string" }
+          - { label: "LinkedIn", name: "linkedin", widget: "string" }
+          - { label: "Twitter", name: "twitter", widget: "string" }
+          - { label: "Instagram", name: "instagram", widget: "string" }
+
+      - name: "about"
+        label: "About Section"
+        file: "src/_data/about.json"
+        fields:
+          - label: "Bio Paragraphs"
+            name: "bio"
+            widget: "list"
+            field: { label: "Paragraph", name: "paragraph", widget: "text" }
+          - label: "Fun Facts"
+            name: "facts"
+            widget: "list"
+            field: { label: "Fact", name: "fact", widget: "string" }
+
+      - name: "experience"
+        label: "Experience"
+        file: "src/_data/experience.json"
+        fields:
+          - label: "Jobs"
+            name: "jobs"
+            widget: "list"
+            fields:
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Company", name: "company", widget: "string" }
+              - { label: "Period", name: "period", widget: "string" }
+              - label: "Bullets"
+                name: "bullets"
+                widget: "list"
+                field: { label: "Bullet", name: "bullet", widget: "string" }
+
+      - name: "education"
+        label: "Education"
+        file: "src/_data/education.json"
+        fields:
+          - label: "Education"
+            name: "entries"
+            widget: "list"
+            fields:
+              - { label: "Degree", name: "degree", widget: "string" }
+              - { label: "Institution", name: "institution", widget: "string" }
+              - { label: "Period", name: "period", widget: "string" }
+              - { label: "GPA", name: "gpa", widget: "string", required: false }
+
+      - name: "skills"
+        label: "Skills"
+        file: "src/_data/skills.json"
+        fields:
+          - label: "Skill Groups"
+            name: "groups"
+            widget: "list"
+            fields:
+              - { label: "Category", name: "category", widget: "string" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                field: { label: "Skill", name: "skill", widget: "string" }
+
+      - name: "certifications"
+        label: "Certifications"
+        file: "src/_data/certifications.json"
+        fields:
+          - label: "Certifications"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Issuer", name: "issuer", widget: "string" }
+              - { label: "Year", name: "year", widget: "string" }
+              - { label: "URL", name: "url", widget: "string", required: false }
+
+      - name: "projects_data"
+        label: "Projects (Homepage)"
+        file: "src/_data/projects.json"
+        fields:
+          - label: "Projects"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Tags", name: "tags", widget: "list", default: [] }
+              - { label: "Image", name: "image", widget: "image", required: false }
+              - { label: "Detail URL", name: "detailUrl", widget: "string", required: false }
+              - { label: "GitHub URL", name: "githubUrl", widget: "string", required: false }
+              - { label: "Featured", name: "featured", widget: "boolean", default: false }
+              - label: "Highlights"
+                name: "highlights"
+                widget: "list"
+                required: false
+                field: { label: "Highlight", name: "highlight", widget: "string" }
