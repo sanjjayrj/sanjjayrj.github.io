@@ -220,7 +220,7 @@ tags: []
   | Sender reads history | Only from local cache      | Full decryption support        |
   | JSON fields          | `epk, nonce, ct, tag`      | + `sepk, rwk, swk`            |
   | Overhead per message | ~100 bytes                 | ~220 bytes                     |
-
+```
   **The fix:** V3 generates a random DEK, encrypts the message once with it,
   then wraps the DEK separately for both parties. The overhead is ~120 extra
   bytes per message (two 60-byte wrapped keys). Negligible.
@@ -240,6 +240,7 @@ tags: []
       default:   return try decryptV2(parsed, userId: userId)
       }
   }
+```
 
   ---
   PIN-Based Key Backup (Roadblock #2: Multi-Device)
@@ -250,7 +251,7 @@ tags: []
   I needed a way to back up the private key without the server ever being able
   to read it. The solution: zero-knowledge PIN encryption.
 
-
+```
   ┌────────────────────────────────────────────────────────────────┐
   │                   PIN BACKUP FLOW                              │
   │                                                                │
@@ -284,7 +285,7 @@ tags: []
   │  │ • Wrong PIN → EncryptionError.decryptionFailed            │  │
   │  └──────────────────────────────────────────────────────────┘  │
   └────────────────────────────────────────────────────────────────┘
-
+```
 
   100,000 PBKDF2 iterations was a deliberate choice. On a modern iPhone, this
   takes about 300ms—imperceptible to the user, but makes brute-forcing a 6-digit
@@ -300,7 +301,7 @@ tags: []
   B's public key.
 
   I identified four conflict states and built resolution flows for each:
-
+```
   ┌──────────────────────────────────────────────────────────────┐
   │              MULTI-DEVICE STATE MACHINE                       │
   │                                                              │
@@ -332,8 +333,7 @@ tags: []
   │  (old msg  (old msg (first                                   │
   │  readable) lost!)   time user)                               │
   └──────────────────────────────────────────────────────────────┘
-
-  ```markdown
+  ```
   The trickiest edge case was iOS occasionally clearing the Keychain after app
   updates. The user didn't switch devices—the OS just nuked their keys. I handle
   this by checking if the server has keys but no backup exists: in that case, I
@@ -350,7 +350,7 @@ tags: []
   A single `dm_messages` table with millions of rows and a `WHERE created_at <
   cursor` clause would eventually degrade. PostgreSQL's partition pruning lets
   me keep queries fast by only scanning relevant month-partitions.
-
+```
   ┌──────────────────────────────────────────────────────────┐
   │              MONTHLY PARTITION SCHEME                     │
   │                                                          │
@@ -369,7 +369,7 @@ tags: []
   │  without downtime.                                       │
   └──────────────────────────────────────────────────────────┘
 
-  ```markdown
+  ```
   ### The Foreign Key Problem (Roadblock #4)
 
   PostgreSQL requires the partition key (`created_at`) in the primary key of
@@ -407,14 +407,14 @@ tags: []
       "user_id": user_id,
       "emoji": emoji
   }
-
+```
   Cursor-Based Pagination
 
   I use timestamp cursors instead of offset pagination. Offsets break when new
   messages arrive mid-scroll (messages get skipped or duplicated). Cursors are
   stable:
 
-
+```
   ┌────────────────────────────────────────────────────────────┐
   │                CURSOR PAGINATION FLOW                       │
   │                                                            │
@@ -441,7 +441,7 @@ tags: []
   │  PostgreSQL prunes to relevant partitions automatically.   │
   │  Index used: (conversation_id, created_at DESC, id)        │
   └────────────────────────────────────────────────────────────┘
-
+```
 
   ---
 
@@ -450,17 +450,17 @@ tags: []
   ### Architecture Decision: Per-User Channels
 
   I considered two approaches for real-time message delivery:
-
+```
   | Approach                 | Pros                     | Cons                        |
   |--------------------------|--------------------------|------------------------------|
   | Per-conversation channel | Simple mental model       | User with 50 convos = 50 WS |
   | Per-user channel         | 1 channel per user total  | Client must filter by convo  |
-
+```
   I went with **per-user channels**. Each user subscribes to exactly one
   Supabase Realtime broadcast channel (`dm-messages-{userId}`), regardless of
   how many conversations they have. The client filters incoming events by
   `conversation_id` to route them to the active view.
-
+```
   ┌──────────────────────────────────────────────────────────────┐
   │               REAL-TIME MESSAGE DELIVERY                     │
   │                                                              │
@@ -494,7 +494,7 @@ tags: []
   │                                          └──────────────┘   │
   └──────────────────────────────────────────────────────────────┘
 
-  ```markdown
+  ```
   ### The Supabase Realtime Stream Bug (Roadblock #5)
 
   This one cost me hours. Supabase's Swift SDK has a non-obvious requirement:
@@ -511,7 +511,7 @@ tags: []
   await channel.subscribe()
   await Task.yield()  // Required per Supabase GitHub issue #390
   for await message in stream { ... }
-
+```
   The Task.yield() is necessary to let the internal subscription complete
   before iterating. Without it, the first few events can still be dropped. I
   found this after tracing through Supabase's source code and their GitHub
@@ -525,7 +525,7 @@ tags: []
 
   I solve this by JOINing device_tokens with user_encryption_keys on
   device_id:
-
+```
   SELECT DISTINCT dt.user_id, dt.token, dt.platform, dt.device_id
   FROM device_tokens dt
   INNER JOIN user_encryption_keys uek
@@ -533,14 +533,14 @@ tags: []
       AND dt.device_id = uek.device_id
   WHERE dt.user_id = ANY($1)
       AND uek.is_active = TRUE;
-
+```
   ---
   Encrypted Media Attachments
 
   Media files (photos, videos, voice messages) are encrypted client-side before
   upload. The server and CDN only ever see encrypted blobs.
 
-
+```
   ┌──────────────────────────────────────────────────────────────┐
   │              ENCRYPTED MEDIA UPLOAD FLOW                      │
   │                                                              │
@@ -580,7 +580,7 @@ tags: []
   │  │ 4. Display decrypted image/video/audio               │    │
   │  └──────────────────────────────────────────────────────┘    │
   └──────────────────────────────────────────────────────────────┘
-
+```
 
   The key insight: encrypted blobs can sit on a public CDN. They're worthless
   without the per-message file key, which itself is wrapped with X25519. Even
@@ -602,7 +602,7 @@ tags: []
   let power = recorder.averagePower(forChannel: 0)  // -160 to 0 dB
   let normalized = max(0, (power + 50) / 50)         // Clamp to 0-1
   powerLevels.append(normalized)
-
+```
   The gesture handling uses a long-press (0.3s threshold) to start recording,
   drag-left (>100pt) to cancel with haptic feedback, and release to send. If
   duration is < 0.5s, it auto-cancels (prevents accidental sends).
@@ -621,7 +621,7 @@ tags: []
   across all conversations in one query, then group by conversation. But this
   had a critical bug—if one conversation was very active, all N messages could
   come from that single conversation, leaving the rest with no preview.
-
+```
   # BUGGY — all messages might come from one active conversation
   messages = (
       supabase.table("dm_messages")
@@ -631,14 +631,14 @@ tags: []
       .limit(len(conv_ids))  # not enough!
       .execute()
   )
-
+```
   The fix: Fetch the last message per conversation individually. Yes, it's
   N queries instead of 1, but each query hits the index
   (conversation_id, created_at DESC) and returns a single row. For a typical
   inbox of 30-50 conversations, the total latency is negligible compared to the
   alternative of showing wrong (or missing) previews.
 
-
+```
   ┌────────────────────────────────────────────────────────────┐
   │            OPTIMIZED INBOX QUERY PLAN                       │
   │                                                            │
@@ -667,7 +667,7 @@ tags: []
   │  Total: ~N+4 queries (vs 3N+1 naive)                       │
   │  For 50 conversations: ~54 queries (vs ~151 naive)         │
   └────────────────────────────────────────────────────────────┘
-
+```
 
   ---
 
@@ -683,8 +683,8 @@ tags: []
   # Backend: normalize every UUID from iOS
   def _normalize_user_id(user_id: str) -> str:
       return user_id.lower() if user_id else user_id
-
-  Roadblock #8: iOS Date Format Incompatibility
+```
+  ### Roadblock #8: iOS Date Format Incompatibility
 
   PostgreSQL returns timestamps like 2026-01-26 19:39:15.123456+00. Swift's
   JSONDecoder with .iso8601 strategy expects 2026-01-26T19:39:15+00:00
@@ -692,7 +692,7 @@ tags: []
 
   I wrote a normalization function that runs on every date field before
   sending responses to iOS:
-
+```
   def _normalize_date_to_iso8601(date_value):
       result = date_value.replace(" ", "T")       # Space → T
       result = re.sub(r'\.\d+', '', result)        # Remove .123456
@@ -701,15 +701,15 @@ tags: []
       if tz_match:
           result = result[:-3] + tz_match.group(1) + ":00"
       return result
-
-  Roadblock #9: Real-Time Race Condition
+```
+  ### Roadblock #9: Real-Time Race Condition
 
   When a message is sent, the real-time broadcast can arrive at the recipient
   before the database transaction commits. The client receives the broadcast,
   tries to fetch the conversation, and gets a 404.
 
   My fix: retry with exponential backoff.
-
+```
   private func fetchNewConversation(_ id: UUID, retryCount: Int = 0) async {
       if retryCount == 0 {
           try? await Task.sleep(nanoseconds: 500_000_000) // 0.5s
@@ -722,8 +722,8 @@ tags: []
           await fetchNewConversation(id, retryCount: retryCount + 1)
       }
   }
-
-  Roadblock #10: Keychain Cleared After App Updates
+```
+  ### Roadblock #10: Keychain Cleared After App Updates
 
   iOS occasionally clears Keychain entries after app updates. The user's private
   key just vanishes. I detect this by checking if the server has keys but no PIN
@@ -733,7 +733,7 @@ tags: []
   ---
   Database Schema Summary
 
-
+```
   ┌─────────────────────────────────────────────────────────────┐
   │                    DATABASE SCHEMA                           │
   │                                                             │
@@ -777,12 +777,12 @@ tags: []
   │  ├── dm_messages_2026_01      └──────────────────────┘      │
   │  └── dm_messages_2026_02                                    │
   └─────────────────────────────────────────────────────────────┘
-
+```
 
   ---
 
   ## Security Summary
-
+```
   | Layer              | Implementation                                        |
   |--------------------|-------------------------------------------------------|
   | Key exchange       | X25519 ECDH (Curve25519)                              |
@@ -795,7 +795,7 @@ tags: []
   | Database access    | Row-Level Security on all 9 tables                    |
   | Rate limiting      | 5 backup restore attempts per 5 minutes               |
   | Push filtering     | Only devices with active encryption keys              |
-
+```
   ---
 
   ## What I'd Do Differently
@@ -821,7 +821,7 @@ tags: []
   ---
 
   ## Numbers
-
+```
   | Metric                        | Value              |
   |-------------------------------|--------------------|
   | iOS encryption code           | 685 lines          |
@@ -834,7 +834,7 @@ tags: []
   | Key backup restore rate limit | 5 per 5 minutes    |
   | Typing indicator TTL          | 10 seconds         |
   | Real-time delivery latency    | < 100ms            |
-
+```
   ---
 
   *This is the first in a series of technical deep dives from building a
