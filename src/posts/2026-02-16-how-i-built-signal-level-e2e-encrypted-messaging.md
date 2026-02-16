@@ -1,11 +1,10 @@
 ---
 title: How I Built Signal-Level E2E Encrypted Messaging
 date: 2026-02-16T12:08:00.000-05:00
-excerpt: "# Building Signal-Level Encryption Into a Consumer App: A Technical
-  Deep Dive "
+excerpt: "Building a Signal-level encryption into a consumer app: A Technical deep dive"
 tags: []
 ---
-                                                                                                                             
+  # Building Signal-Level Encryption Into a Consumer App: A Technical Deep Dive                                                                                                                            
                                                                                                                                                                                                              
   *How I implemented X25519 + AES-256-GCM end-to-end encrypted messaging with
   forward secrecy, multi-device support, and monthly-partitioned storage—from
