@@ -1,6 +1,6 @@
 ---
 title: How I Built Signal-Level E2E Encrypted Messaging
-date: 2026-02-16T12:08:00.000-05:00
+date: 2026-02-10T12:08:00.000-05:00
 excerpt: "Building a Signal-level encryption into a consumer app: A Technical deep dive"
 tags: []
 ---
