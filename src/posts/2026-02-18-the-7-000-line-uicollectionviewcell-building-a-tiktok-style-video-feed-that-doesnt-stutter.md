@@ -1,7 +1,7 @@
 ---
 title: "The 7,000-Line UICollectionViewCell: Building a TikTok-Style Video Feed
   That Doesn't Stutter"
-date: 2026-02-18T00:19:00.000-05:00
+date: 2026-02-14T00:19:00.000-05:00
 excerpt: >-2
     How I built a 4-tier video caching system and a single UICollectionViewCell                                                                                                                               
     that handles playback, engagement tracking, gesture recognition, trust                                                                                                                                     
