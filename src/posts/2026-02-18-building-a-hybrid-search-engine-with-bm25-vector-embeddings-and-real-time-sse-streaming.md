@@ -9,7 +9,10 @@ excerpt: Search in a video-first content platform is fundamentally different
   (100ms), then videos in chunks, then an AI summary streaming token-by-token
   like a ChatGPT response. A single monolithic JSON response would mean 3-5
   seconds of staring at a blank screen.
-tags: []
+tags:
+  - BM25
+  - HNSW
+  - SSE
 ---
 ## The Problem
 
