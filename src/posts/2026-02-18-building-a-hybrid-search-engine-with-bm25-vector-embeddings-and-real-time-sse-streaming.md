@@ -17,7 +17,7 @@ tags:
 ## The Problem
 
   Search in a video-first content platform is fundamentally different from traditional web search. Users type "Israel ceasefire" and expect not just matching videos, but an AI-generated news briefing,
-  relevant creators, trending topics, and all of it appearing progressively—creators first (100ms), then videos in chunks, then an AI summary streaming token-by-token like a ChatGPT response. A single
+  relevant creators, trending topics, and all of it appearing progressively-creators first (100ms), then videos in chunks, then an AI summary streaming token-by-token like a ChatGPT response. A single
   monolithic JSON response would mean 3-5 seconds of staring at a blank screen.
 
   I needed to build a search system that combines lexical precision (BM25) with semantic understanding (vector embeddings), fuses them intelligently, and streams every piece of the result to the client the
@@ -152,13 +152,13 @@ tags:
   The fail-open pattern is important. In development and staging, if Bedrock is unreachable (wrong IAM permissions, region misconfiguration), the embedder returns 512-dimensional zero vectors instead of
   crashing the entire search pipeline. The BM25 leg still works. In production, EMBED_FAIL_OPEN=0 makes this a hard error.
 
-  I also built a BedrockTitanEmbedder class that mimics the SentenceTransformer.encode() API. This let me swap out the local model for Bedrock without changing any calling code—just change the
+  I also built a BedrockTitanEmbedder class that mimics the SentenceTransformer.encode() API. This let me swap out the local model for Bedrock without changing any calling code but by just changing the
   instantiation.
 
   ---
  ## Reciprocal Rank Fusion (RRF)
 
-  The two legs produce different score distributions—BM25 scores can range from 0 to 50+, while KNN cosine similarity lives in [0, 1]. Directly combining them is meaningless. I use Reciprocal Rank Fusion
+  The two legs produce different score distributions: BM25 scores can range from 0 to 50+, while KNN cosine similarity lives in [0, 1]. Directly combining them is meaningless. I use Reciprocal Rank Fusion
   to merge by rank position instead of raw score:
 ```python
   def rrf_merge(legs, k=60):
@@ -181,7 +181,7 @@ tags:
   └────────────────────────────────────────────────────────────────┘
 ```
 
-  Higher k flattens the curve—rank #1 and rank #30 are closer in score. I chose k=60 because I want a document that's #1 in BM25 and #30 in vector to still rank well (it might be an exact keyword match
+  Higher k flattens the curve: rank #1 and rank #30 are closer in score. I chose k=60 because I want a document that's #1 in BM25 and #30 in vector to still rank well (it might be an exact keyword match
   with slightly different phrasing than the query embedding captures).
 
   After RRF merge, I apply a gentle time decay boost:
@@ -295,7 +295,7 @@ tags:
   data: {"token": " continued"}
 ```
 
-  The X-Accel-Buffering: no header is critical—without it, nginx (or any reverse proxy in front) buffers the entire response and defeats the purpose of streaming.
+  The X-Accel-Buffering: no header is critical without it, nginx (or any reverse proxy in front) buffers the entire response and defeats the purpose of streaming.
 
  ### Token-by-Token AI Streaming
 
@@ -325,7 +325,7 @@ tags:
 
  ### Client Side: URLSessionDataDelegate
 
-  On iOS, I built an SSE client from scratch using URLSessionDataDelegate. No third-party libraries—just raw byte stream parsing:
+  On iOS, I built an SSE client from scratch using URLSessionDataDelegate. No third-party libraries, just raw byte stream parsing:
 ```python
   class SSESearchService: NSObject, URLSessionDataDelegate {
       private var buffer: String = ""
@@ -374,7 +374,7 @@ tags:
   1. Rotating sparkle icon: A sparkles SF Symbol rotates at 4s/revolution with a counter-rotating ghost at 1.5x speed, creating a shimmering AI effect.
   2. Pulsing scale: The icon breathes between 1.0 and 1.15 scale on a 1.2s cycle.
   3. Gradient sweep: A purple-to-blue gradient slides across the background container during streaming, then fades out on completion.
-  4. Animated typing dots: Three circles pulse in sequence with 0.2s stagger delay—the classic "typing..." indicator.
+  4. Animated typing dots: Three circles pulse in sequence with 0.2s stagger delay, the classic "typing..." indicator.
   5. Text animation: Each token append triggers a .easeOut(duration: 0.15) animation, making the text grow smoothly instead of jumping.
 
   The view auto-collapses to 4 lines when complete and shows a "Show More" button for long summaries, using a spring animation with 0.3 response and 0.7 damping.
@@ -532,7 +532,7 @@ tags:
 
  ### Roadblock 1: SSE Messages Arriving Split Across TCP Chunks
 
-  Problem: The first version of the iOS SSE parser assumed each didReceive callback contained exactly one complete SSE message. In practice, TCP delivery is unpredictable—a single callback might contain
+  Problem: The first version of the iOS SSE parser assumed each didReceive callback contained exactly one complete SSE message. In practice, TCP delivery is unpredictable where a single callback might contain
   "event: summary_token\ndata: {"tok" (half a message) followed by another with "en": "Israeli"}\n\nevent: summary_token\ndata: ...".
 
   Fix: Buffer-based parsing. Accumulate all received bytes into a string buffer, split on \n\n, process everything except the last segment (which may be incomplete), and keep the last segment in the
@@ -540,7 +540,7 @@ tags:
 
  ### Roadblock 2: Nginx Buffering Destroying the Stream
 
-  Problem: In production behind an nginx reverse proxy, the SSE stream was arriving as one giant blob after the connection closed—completely negating the progressive loading benefit.
+  Problem: In production behind an nginx reverse proxy, the SSE stream was arriving as one giant blob after the connection closed, completely negating the progressive loading benefit.
 
   Fix: Added X-Accel-Buffering: no header to the StreamingResponse. This tells nginx to disable proxy buffering for this response and forward chunks as they arrive. Also set Cache-Control: no-cache and
   Connection: keep-alive for good measure.
@@ -557,12 +557,12 @@ tags:
 
   Problem: Early fusion attempts directly summed BM25 scores (0-50 range) with KNN cosine similarities (0-1 range), making vector search irrelevant.
 
-  Fix: Switched to Reciprocal Rank Fusion. RRF doesn't care about absolute scores—only rank positions matter. A document that's #1 in BM25 and #5 in vector gets the same fused score regardless of whether
+  Fix: Switched to Reciprocal Rank Fusion. RRF doesn't care about absolute scores, only rank positions matter. A document that's #1 in BM25 and #5 in vector gets the same fused score regardless of whether
   the BM25 score was 47.3 or 2.1.
 
  ### Roadblock 5: Bedrock Titan Failing Silently in Development
 
-  Problem: Developers without AWS Bedrock access couldn't run the search pipeline at all. The embedding call would fail, crash the entire endpoint, and return a 500 error—even though BM25 search would have
+  Problem: Developers without AWS Bedrock access couldn't run the search pipeline at all. The embedding call would fail, crash the entire endpoint, and return a 500 error, even though BM25 search would have
    worked fine alone.
 
   Fix: Built a fail-open mode. In non-production environments, Bedrock failures return zero vectors (512 zeros) instead of raising exceptions. A global _bedrock_disabled flag prevents repeated failing
@@ -579,7 +579,7 @@ tags:
 
  ### Roadblock 7: External API Timeouts Blocking the Entire Search
 
-  Problem: When Tavily was slow (3-5 second responses) or completely down, the smart blending step would block the entire SSE stream, delaying everything—including the fast creator results that should have
+  Problem: When Tavily was slow (3-5 second responses) or completely down, the smart blending step would block the entire SSE stream, delaying everything, including the fast creator results that should have
    arrived in 100ms.
 
   Fix: Circuit breaker pattern with 60-second open timeout. After 3 consecutive Tavily failures, all subsequent requests fail instantly (< 1ms) for 60 seconds instead of waiting for a 10-second timeout
@@ -643,7 +643,7 @@ tags:
  ## Key Takeaways
 
   1. **RRF > linear score combination:** When fusing search results from different scoring systems, rank-based fusion eliminates the need to normalize incompatible score distributions. k=60 is a good default.
-  2. **SSE > WebSockets for unidirectional streaming:** The search stream is server-to-client only. SSE is simpler than WebSockets—no handshake upgrade, works through HTTP proxies, and auto-reconnects. The
+  2. **SSE > WebSockets for unidirectional streaming:** The search stream is server-to-client only. SSE is simpler than WebSockets, no handshake upgrade, works through HTTP proxies, and auto-reconnects. The
   tradeoff is no client-to-server messages during the stream, which I don't need.
   3. **Always buffer SSE on the client:** Never assume one network callback = one SSE message. TCP framing is not SSE framing.
   4. **Fail-open for non-critical dependencies:** The embedding service, external APIs, and AI summarization all have fail-open modes. A search that returns BM25-only results is better than a search that
@@ -653,4 +653,4 @@ tags:
   7. **Stream in the order users care about:** Creators first (they're fast and visually prominent), then videos (the main content), then the AI summary (takes longest but has the highest perceived value when it appears).
 
   ---
-  *The hybrid search system processes queries across 3 OpenSearch indices, fuses BM25 and vector results with RRF, streams 5 event types over SSE, generates AI summaries token-by-token via Bedrock Claude 3.5 Sonnet, and adaptively blends internal knowledge with external sources—all while the first result appears on screen in under 250ms.*
+  *The hybrid search system processes queries across 3 OpenSearch indices, fuses BM25 and vector results with RRF, streams 5 event types over SSE, generates AI summaries token-by-token via Bedrock Claude 3.5 Sonnet, and adaptively blends internal knowledge with external sources, all while the first result appears on screen in under 250ms.*
