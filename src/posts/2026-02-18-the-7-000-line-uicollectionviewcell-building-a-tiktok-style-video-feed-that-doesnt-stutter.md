@@ -429,7 +429,7 @@ tags: []
   called, which happens only for the centered cell.
 ```
   ┌──────────────────────────────────────────────────────────────┐
-  │              PLAYER CREATION DECISION TREE                    │
+  │              PLAYER CREATION DECISION TREE                   │
   │                                                              │
   │  play() called                                               │
   │  │                                                           │
@@ -448,15 +448,15 @@ tags: []
   │  │                                                           │
   │  └─ Cold start                                               │
   │     └─ Create AVPlayer from URL                              │
-  │        ├─ HLS: buffer 2.0s, 750kbps cap, 720×1280 max       │
+  │        ├─ HLS: buffer 2.0s, 750kbps cap, 720×1280 max        │
   │        └─ MP4: buffer 3.0s, no bitrate cap                   │
   │                                                              │
   │  After play():                                               │
-  │  ├─ 200ms check: retry play() if currentTime < 0.01         │
+  │  ├─ 200ms check: retry play() if currentTime < 0.01          │
   │  ├─ 300ms check: if audio playing but no video, force show   │
   │  │               video layer (fixes audio-without-video bug) │
-  │  └─ 500ms check: if currentTime < 0.05 (stuck), destroy     │
-  │                   player and recreate from scratch            │
+  │  └─ 500ms check: if currentTime < 0.05 (stuck), destroy      │
+  │                   player and recreate from scratch           │
   └──────────────────────────────────────────────────────────────┘
 
 ```
