@@ -5,7 +5,7 @@ extraCss:
 ---
 <div class="project-detail">
   <div class="container">
-    <a href="/#projects" class="project-back">Back to Projects</a>
+    <a href="{{ '/#building' if status else '/#projects' }}" class="project-back">{{ 'Back to Building' if status else 'Back to Projects' }}</a>
 
     <header class="project-detail-header">
       <h1>{{ title }}</h1>
@@ -25,6 +25,9 @@ extraCss:
         {% endif %}
         {% if paperUrl %}
         <a href="{{ paperUrl }}" target="_blank" rel="noopener" class="btn"><i class="fas fa-file-alt"></i> Paper</a>
+        {% endif %}
+        {% if liveUrl %}
+        <a href="{{ liveUrl }}" target="_blank" rel="noopener" class="btn btn-filled"><i class="fas fa-external-link-alt"></i> Live Demo</a>
         {% endif %}
         {% if demoUrl %}
         <a href="{{ demoUrl }}" target="_blank" rel="noopener" class="btn"><i class="fas fa-external-link-alt"></i> Demo</a>
