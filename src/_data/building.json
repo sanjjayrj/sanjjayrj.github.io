@@ -1,0 +1,22 @@
+{
+  "items": [
+    {
+      "name": "Grimoire",
+      "subtitle": "AI-Native Workflow Automation",
+      "status": "live",
+      "description": "Describe what you want automated. Grimoire compiles it into a verified, inspectable workflow DAG — with simulation mode, human approval gates, a visual editor, and WhatsApp as a first-class channel. Claude is the compiler.",
+      "tags": ["Claude AI", "FastAPI", "React Flow", "PostgreSQL", "WebSocket", "Docker"],
+      "liveUrl": "https://grimoire-automation-app.vercel.app",
+      "detailUrl": "/projects/grimoire/"
+    },
+    {
+      "name": "S2S MK1",
+      "subtitle": "Full-Duplex Indic Speech Translation",
+      "status": "research",
+      "description": "Designing the first real-time, full-duplex speech-to-speech translation system for Indian languages — preserving the speaker's voice and accent across Tamil, Telugu, Kannada, Malayalam, and Hindi. Novel architecture built on Moshi's inner monologue, extended with a three-stage per-frame translation chain.",
+      "tags": ["PyTorch", "Moshi", "IndicWav2Vec", "Audio ML", "IndicTrans2"],
+      "liveUrl": null,
+      "detailUrl": null
+    }
+  ]
+}

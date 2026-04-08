@@ -95,44 +95,33 @@ description: Data Scientist, AI Engineer, and Builder. Currently building ThisJu
     <h2 class="section-title reveal">building</h2>
 
     <div class="building-grid stagger-children">
-
+      {% for item in building.items %}
       <div class="building-card reveal">
         <div class="building-card-header">
-          <span class="building-status live"><span class="live-dot"></span>live</span>
+          <span class="building-status {{ item.status }}">
+            <span class="{{ item.status }}-dot"></span>{{ item.status }}
+          </span>
         </div>
-        <h3>Grimoire</h3>
-        <p class="building-subtitle">AI-Native Workflow Automation</p>
-        <p class="building-desc">Describe what you want automated. Grimoire compiles it into a verified, inspectable workflow DAG — with simulation mode, human approval gates, a visual editor, and WhatsApp as a first-class channel. Claude is the compiler.</p>
+        <h3>{{ item.name }}</h3>
+        <p class="building-subtitle">{{ item.subtitle }}</p>
+        <p class="building-desc">{{ item.description }}</p>
         <div class="tech-tags">
-          <span class="tag">Claude AI</span>
-          <span class="tag">FastAPI</span>
-          <span class="tag">React Flow</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">WebSocket</span>
-          <span class="tag">Docker</span>
+          {% for tag in item.tags %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
         </div>
+        {% if item.liveUrl or item.detailUrl %}
         <div class="building-links">
-          <a href="https://grimoire-automation-app.vercel.app" target="_blank" rel="noopener" class="btn btn-filled">Live Demo</a>
-          <a href="/projects/grimoire/" class="btn">Read More</a>
+          {% if item.liveUrl %}
+          <a href="{{ item.liveUrl }}" target="_blank" rel="noopener" class="btn btn-filled">Live Demo</a>
+          {% endif %}
+          {% if item.detailUrl %}
+          <a href="{{ item.detailUrl }}" class="btn">Read More</a>
+          {% endif %}
         </div>
+        {% endif %}
       </div>
-
-      <div class="building-card reveal">
-        <div class="building-card-header">
-          <span class="building-status research"><span class="research-dot"></span>research</span>
-        </div>
-        <h3>S2S MK1</h3>
-        <p class="building-subtitle">Full-Duplex Indic Speech Translation</p>
-        <p class="building-desc">Designing the first real-time, full-duplex speech-to-speech translation system for Indian languages — preserving the speaker's voice and accent across Tamil, Telugu, Kannada, Malayalam, and Hindi. Novel architecture built on Moshi's inner monologue, extended with a three-stage per-frame translation chain.</p>
-        <div class="tech-tags">
-          <span class="tag">PyTorch</span>
-          <span class="tag">Moshi</span>
-          <span class="tag">IndicWav2Vec</span>
-          <span class="tag">Audio ML</span>
-          <span class="tag">IndicTrans2</span>
-        </div>
-      </div>
-
+      {% endfor %}
     </div>
   </div>
 </section>
